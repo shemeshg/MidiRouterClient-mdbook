@@ -25,3 +25,11 @@ You can set up routing in two ways:
 - **Routes**: A more advanced option for users who want full control over routing configurations.
 
 EasyConfig automatically builds the Routes setup for you, so you get the best of both worlds!
+
+---
+
+# Screenshots
+
+In ports
+
+<img src="Screenshot 2025-08-20 at 6.58.34.png" style="width:60%; height:auto;" />

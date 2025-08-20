@@ -23,6 +23,16 @@ This is especially useful for setting up layered instruments or assigning differ
 
 Once zones are created, you can assign them as sources for `note on/off` events (when a key is pressed or released)
 
+---
 
+# Screenshots
+
+Split
+
+<img src="Screenshot 2025-08-20 at 7.00.59.png" style="width:60%; height:auto;" />
+
+EasyConfig 
+
+<img src="Screenshot 2025-08-20 at 7.02.17.png" style="width:60%; height:auto;" />
 
 
