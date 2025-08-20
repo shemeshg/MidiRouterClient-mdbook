@@ -45,7 +45,6 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
 **Parameters:**
 - `filterType`: `0`
 - `midiInputName`: Name of the MIDI input port
-- `uuid`: Unique identifier
 
 ---
 
@@ -57,7 +56,6 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
   - `0` (CLIENT): Client console
   - `1` (SERVER): Server console
 - `userdata`: Optional user-defined JSON data
-- `uuid`: Unique identifier
 
 ---
 
@@ -68,7 +66,7 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
 - `midiInputName`: MIDI input port name
 - `serverName`: Target server name
 - `serverPort`: Target server port
-- `uuid`: Unique identifier
+
 
 ---
 
@@ -84,7 +82,6 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
   - `4`: QUANTIZE_SPP (nearest SPP)
   - `5`: QUANTIZE_BAR (nearest bar)
 - `deferredTo`: Number of units to defer
-- `uuid`: Unique identifier
 
 ---
 
@@ -101,4 +98,4 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
 - `filterEvents`: MIDI event types to filter (e.g., `[8]` for Note On)
 - `filterType`: `4`
 - `name`: Filter name
-- `uuid`: Unique identifier
+
