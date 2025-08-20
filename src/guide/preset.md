@@ -18,3 +18,15 @@ when the assigned MIDI event is received
 - **toggle** — Enables or disables the current preset.
 - **on** — Enables the preset.
 - **off** — Disables the preset.
+
+---
+
+# Screenshots
+
+Presets
+
+<img src="Screenshot 2025-08-20 at 6.47.18.png" style="width:60%; height:auto;" />
+
+Preset
+
+<img src="Screenshot 2025-08-20 at 6.47.33.png" style="width:60%; height:auto;" />

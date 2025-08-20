@@ -21,4 +21,15 @@ Clicking the `link` at `login` tab redirects to the server folder where the JSON
 
 The "..." button provides `about` information and options to download or upload and apply the current configuration.
 
+---
+
+# Screenshots
+
+Settings 
+
+<img src="Screenshot 2025-08-20 at 6.29.42.png" style="width:60%; height:auto;" />
+
+Login tab
+
+<img src="Screenshot 2025-08-20 at 6.42.51.png" style="width:60%; height:auto;" />
 
