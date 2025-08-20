@@ -1,13 +1,21 @@
 # Configuration
 
-Configuration contain iformattion about
+The configuration includes essential information such as:
 
-- List of current connected inputs and outputs
-- `Presets` - settings for connected and not connected ports,
-    - routing
-    - user controls
-- `dropdown`- Decode of user description for id of a `program change`.
-- `virtual ports`  
+- **Connected Inputs and Outputs**  
+  A list of currently active MIDI ports.
+
+- **Presets**  
+  Settings for both connected and disconnected ports, including:
+  - Routing definitions
+  - User control mappings (e.g., sliders, dropdowns)
+
+- **Dropdowns**  
+  A mapping between user-friendly preset names and their corresponding `Program Change` IDs.
+
+- **Virtual Ports**  
+  Definitions for virtual MIDI ports used for internal routing.  
+  ⚠️ *Note: Virtual ports are currently not supported on Windows.*
 
 
 
@@ -19,7 +27,7 @@ To simplifying the process of persisting changes, In the `login` tab, you can ma
 
 Clicking the `link` at `login` tab redirects to the server folder where the JSON configuration is stored. You can copy this file for backup.
 
-The "..." button provides `about` information and options to download or upload and apply the current configuration.
+The `⋮` button provides `about` information and options to download or upload and apply the current configuration.
 
 ---
 
