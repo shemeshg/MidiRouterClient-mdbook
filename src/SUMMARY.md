@@ -10,4 +10,8 @@
 - [In ports](guide/inport.md)
     - [EasyConfig](guide/easyConfig.md)
     - [Route](guide/route.md)
-# Reference Guide
+- [User Controls](guide/userControl.md)
+
+# Misc
+  - [SBOM](guide/SBOM.md)
+  - [LICENSE](guide/LICENSE.md)
