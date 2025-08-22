@@ -12,6 +12,9 @@
     - [Route](guide/route.md)
 - [User Controls](guide/userControl.md)
 
+# Reference
+- [Reference](guide/reference.md)
+
 # Misc
   - [SBOM](guide/SBOM.md)
   - [LICENSE](guide/LICENSE.md)
