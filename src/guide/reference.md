@@ -2,7 +2,7 @@
 
 ## Event Types
 
-The valuee used at the `json` mapped to `midi event id`
+The value used at the `json` mapped to `midi event id`
 
 ```json
 [
