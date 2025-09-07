@@ -130,13 +130,8 @@ registeredparametercoarse: 100,
 registeredparameterfine: 101
 ```
 
-## Control server using `Qt WebChannel`
+## Runtime control of the server via [`Qt WebChannel`](https://doc.qt.io/qt-6/qtwebchannel-index.html)
 
 This capability is no more used by the GUI of the application. Instead, configuration is handled exclusively through submitted JSON files.
 
-Note: This feature allows runtime control of the server via [`Qt WebChannel`](https://doc.qt.io/qt-6/qtwebchannel-index.html). 
-It is significantly more advanced than standard JSON-based configuration and may not be suitable for most/all use cases.
-
-This is included only to demonstrate that the server supports dynamic interaction—not just static setup.
-
-https://github.com/shemeshg/qwebchannelTypeScriptExample/blob/master/src/main.ts
+<https://github.com/shemeshg/qwebchannelTypeScriptExample/blob/master/src/main.ts>
