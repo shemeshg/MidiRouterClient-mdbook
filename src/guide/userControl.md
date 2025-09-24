@@ -2,6 +2,8 @@
 
 Each preset can include interactive controls such as sliders, optionally paired with dropdown menus.
 
+User controls can be programmed to trigger MIDI messages to any port when the `Midi Router Client` receives program changes
+
 Only the controls associated with the currently selected preset are displayed.
 
 These controls send MIDI events to a predefined local port. The following MIDI event types are supported:
