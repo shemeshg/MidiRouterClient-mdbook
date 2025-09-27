@@ -11,6 +11,8 @@ Here’s what you can adjust:
 - **MIDI Clock Settings**: Control how MIDI clock signals are handled, including advanced options like converting `SPP` (Song Position Pointer) to time signatures.
 - **14-bit CC Translation**: Enables more accurate conversion of 14-bit MIDI messages—for example, turning them into pitch wheel data.
 
+> Only the active and selected preset determines the applied port settings.
+
 ## Monitoring
 
 Monitoring lets you keep an eye on incoming MIDI messages.
