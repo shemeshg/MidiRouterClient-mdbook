@@ -102,4 +102,6 @@ This can be useful, for example, when routing a **Note On** key value to **CC** 
 - `filterType`: `4`
 - `name`: Filter name
 
+---
+
 ### Filter Type 5: `SWITCH_DATA1_DATA2`
