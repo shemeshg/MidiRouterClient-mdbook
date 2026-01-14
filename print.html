@@ -1,0 +1,597 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>MIDI Router Client documentation</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-00a28590.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-6fb66784.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">MIDI Router Client documentation</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <img src="icon.png" style="width:10%; height:auto;" />
+<h1 id="midi-router-client"><a class="header" href="#midi-router-client"><a href="https://sourceforge.net/projects/midi-router-client/">Midi Router Client</a></a></h1>
+<p>Create routes from anywhere to anywhere</p>
+<p>Midi Router Client is an advanced, cross-platform tool designed to route and manipulate MIDI signals in real time. It allows users to create virtual MIDI ports, map MIDI events (e.g., CC to pitch wheel), monitor inputs, and build custom controls like program change dropdowns—all with minimal latency</p>
+<p>Homepage: <a href="https://sourceforge.net/projects/midi-router-client/">https://sourceforge.net/projects/midi-router-client/</a></p>
+<p>Github and support: <a href="https://github.com/shemeshg/MidiRouterClient">https://github.com/shemeshg/MidiRouterClient</a></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="installation-guide"><a class="header" href="#installation-guide">Installation Guide</a></h1>
+<h2 id="windows"><a class="header" href="#windows">Windows</a></h2>
+<p>Install via <a href="https://learn.microsoft.com/en-us/windows/package-manager/winget/">winget</a>:</p>
+<pre><code class="language-cmd">winget install Shemeshg.MidiRouterClient
+</code></pre>
+<h2 id="macos"><a class="header" href="#macos">macOS</a></h2>
+<p>Install via <a href="https://brew.sh/">Homebrew</a>:</p>
+<pre><code class="language-bash">brew install --cask midi-router-client
+codesign --force --deep --sign - /Applications/midi-router-client.app/
+xattr -c /Applications/midi-router-client.app/
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> macOS requires manual code signing and removal of extended attributes to ensure proper execution.</p>
+</blockquote>
+<h2 id="linux"><a class="header" href="#linux">Linux</a></h2>
+<p>Prebuilt <code>.zip</code> and <code>.deb</code> packages are available, targeting the oldest supported Ubuntu LTS at the time of release.</p>
+<h2 id="-additional-notes"><a class="header" href="#-additional-notes">⚠️ Additional Notes</a></h2>
+<ul>
+<li>Distributed binaries are <strong>not code-signed</strong>.</li>
+<li>The macOS cask may be relocated to a different tap in the future due to a <code>deleted &lt;date&gt;: unsigned</code> tag.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="configuration"><a class="header" href="#configuration">Configuration</a></h1>
+<p>The configuration includes essential information such as:</p>
+<ul>
+<li>
+<p><strong>Connected Inputs and Outputs</strong><br>A list of currently active MIDI ports.</p>
+</li>
+<li>
+<p><strong>Presets</strong><br>Settings for both connected and disconnected ports, including:</p>
+<ul>
+<li>Routing definitions</li>
+<li>User control mappings (e.g., sliders, dropdowns)</li>
+</ul>
+</li>
+<li>
+<p><strong>Dropdowns</strong><br>A mapping between user-friendly preset names and their corresponding <code>Program Change</code> IDs.</p>
+</li>
+<li>
+<p><strong>Virtual Ports</strong><br>Definitions for virtual MIDI ports used for internal routing.<br>⚠️ <em>Note: Virtual ports are currently not supported on Windows.</em></p>
+</li>
+</ul>
+<h2 id="persist-configuration"><a class="header" href="#persist-configuration">Persist configuration</a></h2>
+<p>Configuration is stored in a <code>json</code> file. Since the schema may change with version upgrades, it’s recommended to back up your configuration regularly.</p>
+<p>To simplifying the process of persisting changes, In the <code>login</code> tab, you can manage automatically load on application start and save on close.</p>
+<p>Clicking the <code>link</code> at <code>login</code> tab redirects to the server folder where the JSON configuration is stored. You can copy this file for backup.</p>
+<p>The <code>⋮</code> button provides <code>about</code> information and options to download or upload and apply the current configuration.</p>
+<hr>
+<h1 id="screenshots"><a class="header" href="#screenshots">Screenshots</a></h1>
+<p>Settings</p>
+<img src="guide/Screenshot 2025-08-20 at 6.29.42.png" style="width:60%; height:auto;" />
+<p>Login tab</p>
+<img src="guide/Screenshot 2025-08-20 at 6.42.51.png" style="width:60%; height:auto;" />
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="presets"><a class="header" href="#presets">Presets</a></h1>
+<p>Presets are containers for user-defined input configurations. They can be activated via mouse click or MIDI event, offering flexible and dynamic control.</p>
+<p>Each preset holds its own distinct settings across all available input channels.</p>
+<h2 id="usage-notes"><a class="header" href="#usage-notes">Usage Notes</a></h2>
+<p>While multiple presets can be active at once, it’s generally recommended to use only one at a time—especially when applying advanced input configurations such as 14-bit resolution or clock routing.</p>
+<p>Using a single preset helps maintain clarity and avoids potential conflicts between overlapping input settings.</p>
+<h2 id="midi-preset-activation-modes"><a class="header" href="#midi-preset-activation-modes">MIDI Preset Activation Modes</a></h2>
+<p>when the assigned MIDI event is received</p>
+<ul>
+<li><strong>select</strong> — Activates the selected preset and disables all others.</li>
+<li><strong>toggle</strong> — Enables or disables the current preset.</li>
+<li><strong>on</strong> — Enables the preset.</li>
+<li><strong>off</strong> — Disables the preset.</li>
+</ul>
+<hr>
+<h1 id="screenshots-1"><a class="header" href="#screenshots-1">Screenshots</a></h1>
+<p>Presets</p>
+<img src="guide/Screenshot 2025-08-20 at 6.47.18.png" style="width:60%; height:auto;" />
+<p>Preset</p>
+<img src="guide/Screenshot 2025-08-20 at 6.47.33.png" style="width:60%; height:auto;" />
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="input-ports"><a class="header" href="#input-ports">Input Ports</a></h1>
+<p>This tab lets you set up and manage your input ports.<br>Only ports that are currently connected will be shown.</p>
+<h2 id="port-settings"><a class="header" href="#port-settings">Port Settings</a></h2>
+<p>Here’s what you can adjust:</p>
+<ul>
+<li><strong>Ignore Message Types</strong>: Choose which types of MIDI messages to ignore.</li>
+<li><strong>MIDI Clock Settings</strong>: Control how MIDI clock signals are handled, including advanced options like converting <code>SPP</code> (Song Position Pointer) to time signatures.</li>
+<li><strong>14-bit CC Translation</strong>: Enables more accurate conversion of 14-bit MIDI messages—for example, turning them into pitch wheel data.</li>
+</ul>
+<blockquote>
+<p>Only the active and selected preset determines the applied port settings.</p>
+</blockquote>
+<h2 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h2>
+<p>Monitoring lets you keep an eye on incoming MIDI messages.
+It also makes tricky stuff—like 14-bit values or NRPNs—way easier to read by turning them into something more understandable.</p>
+<h2 id="routing-options"><a class="header" href="#routing-options">Routing Options</a></h2>
+<p>You can set up routing in two ways:</p>
+<ul>
+<li><strong>EasyConfig</strong>: A simple, beginner-friendly tool that helps you create routing setups without needing to dive into technical details.</li>
+<li><strong>Routes</strong>: A more advanced option for users who want full control over routing configurations.</li>
+</ul>
+<p>EasyConfig automatically builds the Routes setup for you, so you get the best of both worlds!</p>
+<hr>
+<h1 id="screenshots-2"><a class="header" href="#screenshots-2">Screenshots</a></h1>
+<p>In ports</p>
+<img src="guide/Screenshot 2025-08-20 at 6.58.34.png" style="width:60%; height:auto;" /><div style="break-before: page; page-break-before: always;"></div>
+<h1 id="easyconfig-overview"><a class="header" href="#easyconfig-overview">EasyConfig Overview</a></h1>
+<p>EasyConfig makes MIDI routing simple and approachable—no need to dive into complex low-level setup.</p>
+<p>The interface is organized into two main tabs: <strong>Routes</strong> and <strong>Split</strong>, each designed to help you configure your MIDI setup quickly and efficiently.</p>
+<h2 id="easyconfig-routes"><a class="header" href="#easyconfig-routes">EasyConfig Routes</a></h2>
+<h3 id="destination-setup"><a class="header" href="#destination-setup">Destination Setup</a></h3>
+<p>You can route MIDI data to either:</p>
+<ul>
+<li>A local <strong>output name</strong>, or</li>
+<li>A <strong>network destination</strong> using the format: <code>&lt;address&gt;:&lt;port&gt;/&lt;destinationName&gt;</code></li>
+</ul>
+<p>To make remote setup easier, there’s a <strong>Query</strong> button that checks if the remote port is available and confirms connectivity.<br>All network communication uses <strong>WebSocket over TCP</strong>, ensuring reliable data transfer.</p>
+<h2 id="keyboard-split"><a class="header" href="#keyboard-split">Keyboard Split</a></h2>
+<p>The <strong>Split</strong> tab lets you define a <strong>split point</strong> on your keyboard—this divides it into separate zones.
+This is especially useful for setting up layered instruments or assigning different sounds to different parts of the keyboard.</p>
+<p>Once zones are created, you can assign them as sources for <code>note on/off</code> events (when a key is pressed or released)</p>
+<hr>
+<h1 id="screenshots-3"><a class="header" href="#screenshots-3">Screenshots</a></h1>
+<p>Split</p>
+<img src="guide/Screenshot 2025-08-20 at 7.00.59.png" style="width:60%; height:auto;" />
+<p>EasyConfig</p>
+<img src="guide/Screenshot 2025-08-20 at 7.02.17.png" style="width:60%; height:auto;" />
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="route"><a class="header" href="#route">Route</a></h1>
+<p>A <strong>Route</strong> is a container for multiple chains, enabling modular and sequential processing of MIDI data.</p>
+<h3 id="learning-to-create-routes"><a class="header" href="#learning-to-create-routes">Learning to Create Routes</a></h3>
+<p>If you’re trying to understand how routes are built, the easiest way is to start with an <code>EasyConfig</code>. Once you’ve created one, inspect how it’s automatically translated into a full route. This reverse-engineering method offers a hands-on, intuitive way to grasp the structure and logic of route creation—without needing to dive into low-level details right away.</p>
+<hr>
+<h2 id="chains"><a class="header" href="#chains">Chains</a></h2>
+<p>A <strong>chain</strong> defines a linear path composed of a sequence of <strong>filters</strong>. Each filter performs a specific transformation or analysis on the MIDI stream, allowing for flexible and customizable data manipulation as it flows through the chain.</p>
+<hr>
+<h1 id="filter-types"><a class="header" href="#filter-types">Filter Types</a></h1>
+<h3 id="to_midi_destination"><a class="header" href="#to_midi_destination"><code>TO_MIDI_DESTINATION</code></a></h3>
+<p>Routes MIDI events to a specific local MIDI destination.</p>
+<h3 id="to_console"><a class="header" href="#to_console"><code>TO_CONSOLE</code></a></h3>
+<p>Logs MIDI events to the console (either server or client). This filter is also used for inter-server communication, such as sending logged MIDI messages to a client or triggering preset changes via MIDI.</p>
+<h3 id="to_network"><a class="header" href="#to_network"><code>TO_NETWORK</code></a></h3>
+<p>Sends all MIDI events to a remote destination.</p>
+<h3 id="schedule_to"><a class="header" href="#schedule_to"><code>SCHEDULE_TO</code></a></h3>
+<p>Holds MIDI events and schedules them for future delivery based on <code>deferredType</code> and <code>deferredTo</code> parameters. Requires MIDI clock events to function properly.</p>
+<h3 id="filter_and_transform"><a class="header" href="#filter_and_transform"><code>FILTER_AND_TRANSFORM</code></a></h3>
+<p>Allows both filtering and transforming MIDI event data. Transformation notation includes:</p>
+<ul>
+<li><code>[[fromStart, fromEnd, toStart, toEnd]]</code> — Maps a range from <code>fromStart</code> to <code>fromEnd</code> onto <code>toStart</code> to <code>toEnd</code>.</li>
+<li><code>[[fromStart, fromEnd, toStart]]</code> — Short form where <code>toEnd = toStart + (fromEnd - fromStart)</code>.</li>
+<li><code>[[value1, value2]]</code> — Maps <code>value1</code> to <code>value2</code>.</li>
+<li><code>[[value]]</code> — Equivalent to <code>[[value, value]]</code>, a single value mapping.</li>
+</ul>
+<h3 id="switch_data1_data2"><a class="header" href="#switch_data1_data2"><code>SWITCH_DATA1_DATA2</code></a></h3>
+<p>Swap <strong>data1</strong> and <strong>data2</strong>, or swap <strong>NRPN control</strong> and <strong>NRPN data</strong> when using <strong>NRPN</strong>.
+This can be useful, for example, when routing a <strong>Note On</strong> key value to <strong>CC</strong> data.</p>
+<h1 id="-reference"><a class="header" href="#-reference">📚 Reference</a></h1>
+<h3 id="filter-type-0-to_midi_destination"><a class="header" href="#filter-type-0-to_midi_destination">Filter Type 0: <code>TO_MIDI_DESTINATION</code></a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>filterType</code>: <code>0</code></li>
+<li><code>midiInputName</code>: Name of the MIDI input port</li>
+</ul>
+<hr>
+<h3 id="filter-type-1-to_console"><a class="header" href="#filter-type-1-to_console">Filter Type 1: <code>TO_CONSOLE</code></a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>filterType</code>: <code>1</code></li>
+<li><code>logTo</code>: Logging destination
+<ul>
+<li><code>0</code> (CLIENT): Client console</li>
+<li><code>1</code> (SERVER): Server console</li>
+</ul>
+</li>
+<li><code>userdata</code>: Optional user-defined JSON data</li>
+</ul>
+<hr>
+<h3 id="filter-type-2-to_network"><a class="header" href="#filter-type-2-to_network">Filter Type 2: <code>TO_NETWORK</code></a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>filterType</code>: <code>2</code></li>
+<li><code>midiInputName</code>: MIDI input port name</li>
+<li><code>serverName</code>: Target server name</li>
+<li><code>serverPort</code>: Target server port</li>
+</ul>
+<hr>
+<h3 id="filter-type-3-schedule_to"><a class="header" href="#filter-type-3-schedule_to">Filter Type 3: <code>SCHEDULE_TO</code></a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>filterType</code>: <code>3</code></li>
+<li><code>deferredType</code>: Scheduling mode
+<ul>
+<li><code>0</code>: IN_SPP (relative to Song Position Pointer)</li>
+<li><code>1</code>: IN_BAR (relative to current bar)</li>
+<li><code>2</code>: AT_SPP (specific SPP)</li>
+<li><code>3</code>: AT_BAR (specific bar)</li>
+<li><code>4</code>: QUANTIZE_SPP (nearest SPP)</li>
+<li><code>5</code>: QUANTIZE_BAR (nearest bar)</li>
+</ul>
+</li>
+<li><code>deferredTo</code>: Number of units to defer</li>
+</ul>
+<hr>
+<h3 id="filter-type-4-filter_and_transform"><a class="header" href="#filter-type-4-filter_and_transform">Filter Type 4: <code>FILTER_AND_TRANSFORM</code></a></h3>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>conditionAction</code>: Event deletion logic
+<ul>
+<li><code>0</code>: DO_NOT_DELETE</li>
+<li><code>1</code>: DELETE_IF_NOT_MET_CONDITION</li>
+<li><code>2</code>: DELETE_IF_MET_CONDITION</li>
+</ul>
+</li>
+<li><code>filterChannel</code>: MIDI channel filter</li>
+<li><code>filterData1</code>: Data1 byte filter/transform</li>
+<li><code>filterData2</code>: Data2 byte filter/transform</li>
+<li><code>filterEvents</code>: MIDI event types to filter (e.g., <code>[8]</code> for Note On)</li>
+<li><code>filterType</code>: <code>4</code></li>
+<li><code>name</code>: Filter name</li>
+</ul>
+<hr>
+<h3 id="filter-type-5-switch_data1_data2"><a class="header" href="#filter-type-5-switch_data1_data2">Filter Type 5: <code>SWITCH_DATA1_DATA2</code></a></h3>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="user-controls"><a class="header" href="#user-controls">User Controls</a></h1>
+<p>Each preset can include interactive controls such as sliders, optionally paired with dropdown menus.</p>
+<p>User controls can be programmed to trigger MIDI messages to any port when the <code>Midi Router Client</code> receives program changes</p>
+<p>Only the controls associated with the currently selected preset are displayed.</p>
+<p>These controls send MIDI events to a predefined local port. The following MIDI event types are supported:</p>
+<ul>
+<li><strong>Control Change (CC)</strong></li>
+<li><strong>Program Change</strong></li>
+<li><strong>NRPN (Non-Registered Parameter Number)</strong></li>
+</ul>
+<p>The <code>is64Mode</code> flag interprets the value <code>64</code> as the center or zero point, commonly used for bipolar ranges.</p>
+<p>Dropdowns can also be used to store and select predefined preset names.</p>
+<hr>
+<h1 id="screenshorts"><a class="header" href="#screenshorts">Screenshorts</a></h1>
+<p>controls</p>
+<img src="guide/Screenshot 2025-08-20 at 10.15.17.png" style="width:60%; height:auto;" />
+<p>control</p>
+<img src="guide/Screenshot 2025-08-20 at 10.04.11.png" style="width:60%; height:auto;" />
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="reference"><a class="header" href="#reference">Reference</a></h1>
+<h2 id="event-types"><a class="header" href="#event-types">Event Types</a></h2>
+<p>The value used at the <code>json</code> mapped to <code>midi event id</code></p>
+<pre><code class="language-json">[
+  { "value": 0, "text": "[] - -" },
+  { "value": 1, "text": "[8, 9] - Note on/off" },
+  { "value": 2, "text": "[9] - Note off" },
+  { "value": 3, "text": "[8] - Note on" },
+  { "value": 4, "text": "[10] - Key Aftertouch" },
+  { "value": 5, "text": "[11] - Control Change" },
+  { "value": 7, "text": "[100] - NRPN" },
+  { "value": 8, "text": "[12] - Program Change" },
+  { "value": 9, "text": "[13] - Channel Aftertouch" },
+  { "value": 10, "text": "[14] - Pitch Bend" }
+]
+</code></pre>
+<h3 id="preset-configuration-example"><a class="header" href="#preset-configuration-example">Preset configuration example</a></h3>
+<p>Users aren’t expected to manually edit or create <code>json</code> files—this example is provided solely to help you understand the configuration structure.</p>
+<p>As the configuration grows, it may become increasingly difficult to grasp its overall purpose. It’s recommended to maintain a separate README file outside the app to document and explain your configuration.</p>
+<p><strong>Routing a Control Change (CC) event to NRPN, using channel 6 for both, and mapping a value range from 0–127 to 0–255.</strong></p>
+<pre><code class="language-json">{
+  "midiRoutePresets": [
+    {
+      "midiRouteInputs": [
+        {
+          "midiInputName": "0_Launch Control XL",
+          "easyConfig": {
+            "easyConfigRoutes": [
+              {
+                "fromCcOrNrpnEnd": 127,
+                "fromCcOrNrpnStart": 0,
+                "fromChannel": 6,
+                "fromData1": -1,
+                "fromSelectedMidiEventTypeId": 5,
+                "splitRangeId": -1,
+                "toCcOrNrpnEnd": 255,
+                "toCcOrNrpnStart": 0,
+                "toChannel": 6,
+                "toData1": 8,
+                "toDestinationName": "localhost:12345/0_Scarlett 2i4 USB",
+                "toSelectedMidiEventTypeId": 7,
+                "transpose": 0,
+                "uuid": "d3bc0cb8-0de6-43ec-94c5-91b4a6ed7c6d"
+              }
+            ],
+            "keyboardSplits": [],
+            "zoneNames": []
+          }
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<h2 id="list-of-midi-cc-commands"><a class="header" href="#list-of-midi-cc-commands">List of Midi CC commands</a></h2>
+<p>Some of these commands may be reserved, although certain devices might not reserve them at all and instead use them for different functions. The following list represents a common convention, but individual devices are not strictly required to adhere to it.</p>
+<pre><code>bankselectcoarse: 0,
+modulationwheelcoarse: 1,
+breathcontrollercoarse: 2,
+footcontrollercoarse: 4,
+portamentotimecoarse: 5,
+dataentrycoarse: 6,
+volumecoarse: 7,
+balancecoarse: 8,
+pancoarse: 10,
+expressioncoarse: 11,
+effectcontrol1coarse: 12,
+effectcontrol2coarse: 13,
+generalpurposeslider1: 16,
+generalpurposeslider2: 17,
+generalpurposeslider3: 18,
+generalpurposeslider4: 19,
+bankselectfine: 32,
+modulationwheelfine: 33,
+breathcontrollerfine: 34,
+footcontrollerfine: 36,
+portamentotimefine: 37,
+dataentryfine: 38,
+volumefine: 39,
+balancefine: 40,
+panfine: 42,
+expressionfine: 43,
+effectcontrol1fine: 44,
+effectcontrol2fine: 45,
+holdpedal: 64,
+portamento: 65,
+sustenutopedal: 66,
+softpedal: 67,
+legatopedal: 68,
+hold2pedal: 69,
+soundvariation: 70,
+resonance: 71,
+soundreleasetime: 72,
+soundattacktime: 73,
+brightness: 74,
+soundcontrol6: 75,
+soundcontrol7: 76,
+soundcontrol8: 77,
+soundcontrol9: 78,
+soundcontrol10: 79,
+generalpurposebutton1: 80,
+generalpurposebutton2: 81,
+generalpurposebutton3: 82,
+generalpurposebutton4: 83,
+reverblevel: 91,
+tremololevel: 92,
+choruslevel: 93,
+celestelevel: 94,
+phaserlevel: 95,
+databuttonincrement: 96,
+databuttondecrement: 97,
+nonregisteredparametercoarse: 98,
+nonregisteredparameterfine: 99,
+registeredparametercoarse: 100,
+registeredparameterfine: 101
+</code></pre>
+<h2 id="runtime-control-of-the-server-via-qt-webchannel"><a class="header" href="#runtime-control-of-the-server-via-qt-webchannel">Runtime control of the server via <a href="https://doc.qt.io/qt-6/qtwebchannel-index.html"><code>Qt WebChannel</code></a></a></h2>
+<p>This capability is no more used by the GUI of the application. Instead, configuration is handled exclusively through submitted JSON files.</p>
+<p><a href="https://github.com/shemeshg/qwebchannelTypeScriptExample/blob/master/src/main.ts">https://github.com/shemeshg/qwebchannelTypeScriptExample/blob/master/src/main.ts</a></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="sbom"><a class="header" href="#sbom">SBOM</a></h1>
+<p><a href="https://github.com/shemeshg/MidiRouterClient/blob/main/SBOM.md">https://github.com/shemeshg/MidiRouterClient/blob/main/SBOM.md</a></p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="license"><a class="header" href="#license">LICENSE</a></h1>
+<p><a href="https://github.com/shemeshg/MidiRouterClient/blob/main/LICENSE">https://github.com/shemeshg/MidiRouterClient/blob/main/LICENSE</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
