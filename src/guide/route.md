@@ -36,7 +36,10 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
 - `[[value1, value2]]` — Maps `value1` to `value2`.
 - `[[value]]` — Equivalent to `[[value, value]]`, a single value mapping.
 
----
+
+### `SWITCH_DATA1_DATA2`
+Swap **data1** and **data2**, or swap **NRPN control** and **NRPN data** when using **NRPN**.
+This can be useful, for example, when routing a **Note On** key value to **CC** data.
 
 # 📚 Reference
 
@@ -99,3 +102,4 @@ Allows both filtering and transforming MIDI event data. Transformation notation 
 - `filterType`: `4`
 - `name`: Filter name
 
+### Filter Type 5: `SWITCH_DATA1_DATA2`
