@@ -13,7 +13,8 @@ winget install Shemeshg.MidiRouterClient
 Install via [Homebrew](https://brew.sh/):
 
 ```bash
-brew install --cask midi-router-client
+brew remove --cask midi-router-client
+brew install --cask shemeshg/homebrew-tap/midi-router-client
 codesign --force --deep --sign - /Applications/midi-router-client.app/
 xattr -c /Applications/midi-router-client.app/
 ```
@@ -27,4 +28,3 @@ Prebuilt `.zip` and `.deb` packages are available, targeting the oldest supporte
 ## ⚠️ Additional Notes
 
 - Distributed binaries are **not code-signed**.
-- The macOS cask may be relocated to a different tap in the future due to a `deleted <date>: unsigned` tag.
