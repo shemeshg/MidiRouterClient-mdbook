@@ -11,7 +11,39 @@ The configuration includes essential information such as:
   - User control mappings (e.g., sliders, dropdowns)
 
 - **Dropdowns**  
-  A mapping between user-friendly preset names and their corresponding `Program Change` IDs.
+
+    Dropdowns allow users to select values using friendly labels, but the label itself may also contain embedded MIDI commands.
+
+    It is generated from the **User Control definition**, and may optionally include one or more embedded MIDI instructions.
+
+    When an embedded command is present, the **User Control’s normal action is not executed**.  
+    Instead, the embedded MIDI commands take priority and are sent immediately.
+
+    ### Supported Embedded Commands
+
+    A dropdown label may include:
+
+    - `CC-x-y` — Send Control Change *x* with value *y*
+    - `PC-x` — Send Program Change *x*
+    - `NRPN-x-y` — Send NRPN parameter *x* with value *y*
+
+    These tokens may appear **anywhere in the label** and in **any order**.  
+    The application automatically detects them and triggers the corresponding MIDI messages.
+
+    ### Example
+
+    Select Program **3** in Program Bank **5**:
+
+    ```
+    CC-0-5  CC-32-0  PC-3
+    ```
+
+    This sends:
+
+    - `CC 0 → 5` (Bank Select MSB)
+    - `CC 32 → 0` (Bank Select LSB)
+    - `PC 3` (Program Change)
+
 
 - **Virtual Ports**  
   Definitions for virtual MIDI ports used for internal routing.  
