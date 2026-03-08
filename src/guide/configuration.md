@@ -35,10 +35,11 @@ The configuration includes essential information such as:
     Select Program **3** in Program Bank **5**:
 
     ```
-    CC-0-5  CC-32-0  PC-3
+    Item default send zero for what ever defined in user control
+    Item that send program change CC-0-5  CC-32-0  PC-3
     ```
 
-    This sends:
+    2nd item sends:
 
     - `CC 0 → 5` (Bank Select MSB)
     - `CC 32 → 0` (Bank Select LSB)
