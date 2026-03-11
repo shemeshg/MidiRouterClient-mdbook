@@ -87,6 +87,8 @@ The `⋮` menu provides:
 
 - **About** information  
 - Options to **download**, **upload**, and **apply** the current configuration  
+- Accessibility (font size)
+- UI preferences, monitor in external dialog.
 
 ---
 
