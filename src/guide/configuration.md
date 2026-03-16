@@ -71,10 +71,8 @@ Because the schema may change between versions, it is recommended to back up you
 
 ### Automatic Load/Save
 
-The **Login** tab allows you to:
-
-- Automatically load configuration on application start  
-- Automatically save configuration on application close  
+The **Login** tab allows you to load the configuration when the application starts, 
+and save it when the application closes or when changes are applied (with throttling).
 
 ### Accessing the Configuration File
 
