@@ -88,6 +88,28 @@ The `⋮` menu provides:
 - Accessibility (font size)
 - UI preferences, monitor in external dialog.
 
+## cli options available for `linux` and `macos` only
+
+Since the application does not automatically re‑apply its configuration when MIDI devices disconnect or reconnect, it can be useful to trigger a re‑apply through the CLI — both for local and remote servers. 
+A successful apply operation returns exit code 0.
+
+```
+Usage: ./midi-router-client [options]
+
+Options:
+  -h, --help  Displays help on commandline options.
+  --help-all  Displays help, including generic Qt options.
+  --headless  Run in headless mode on the specified port by the gui.
+  --apply     Apply a preset (local or remote).
+               --address <address>      Remote address (ip:port).
+               --preset-name <preset>   Preset name to apply.
+
+ example:
+  ./midi-router-client  --apply --address 127.0.0.1:2222 --preset-name "neutron"
+```
+
+
+
 ---
 
 ## Screenshots

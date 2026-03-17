@@ -29,4 +29,3 @@ Prebuilt `.zip` and `.deb` packages are available, targeting the oldest supporte
 
 - Distributed binaries are **not code-signed**.
 
-- `--headless`, headless mode available for `linux` and `macos` only
