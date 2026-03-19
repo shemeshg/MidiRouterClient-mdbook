@@ -102,7 +102,8 @@ Options:
   --headless  Run in headless mode on the specified port by the gui.
   --apply     Apply a preset (local or remote).
                --address <address>      Remote address (ip:port).
-               --preset-name <preset>   Preset name to apply.
+               --preset-name <preset>   Preset name (regex) to apply, use "" to
+              list presets
 
  example:
   ./midi-router-client  --apply --address 127.0.0.1:2222 --preset-name "neutron"
