@@ -5,6 +5,7 @@
 # User Guide
 
 - [Installation](guide/installation.md)
+    - [Windows Service (manual installation)](guide/installation_windows_service.md)
 - [Configuration](guide/configuration.md)
 - [Presets](guide/preset.md)
 - [In ports](guide/inport.md)

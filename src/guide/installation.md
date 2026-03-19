@@ -8,6 +8,8 @@ Install via [winget](https://learn.microsoft.com/en-us/windows/package-manager/w
 winget install Shemeshg.MidiRouterClient
 ```
 
+Also see [Windows Service (manual installation)](installation_windows_service.md)
+
 ## macOS
 
 Install via [Homebrew](https://brew.sh/):
