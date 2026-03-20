@@ -100,6 +100,8 @@ Options:
   -h, --help  Displays help on commandline options.
   --help-all  Displays help, including generic Qt options.
   --headless  Run in headless mode on the specified port by the gui.
+               --config-file  <path>    Full path to config file.
+               --server-port  <path>    serevr port.
   --apply     Apply a preset (local or remote).
                --address <address>      Remote address (ip:port).
                --preset-name <preset>   Preset name (regex) to apply, use "" to
