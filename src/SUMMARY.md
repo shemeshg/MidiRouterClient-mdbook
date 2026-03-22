@@ -7,6 +7,7 @@
 - [Installation](guide/installation.md)
     - [Windows Service (manual installation)](guide/installation_windows_service.md)
 - [Configuration](guide/configuration.md)
+    - [Supported dropdown embedded commands](guide/Supported_Dropdown_Embedded_Commands.md)
 - [Presets](guide/preset.md)
 - [In ports](guide/inport.md)
     - [EasyConfig](guide/easyConfig.md)

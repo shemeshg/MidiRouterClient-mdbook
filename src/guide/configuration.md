@@ -32,32 +32,6 @@ A label may also contain **embedded MIDI commands**, which override the default 
 - When embedded commands are detected, the **normal User Control action is skipped**.  
   Instead, the embedded MIDI messages are sent immediately.
 
-### Supported Embedded Commands
-
-A dropdown label may include any of the following tokens:
-
-- `CC-x-y` — Send Control Change *x* with value *y*
-- `PC-x` — Send Program Change *x*
-- `NRPN-x-y` — Send NRPN parameter *x* with value *y*
-
-These tokens may appear **anywhere in the label** and in **any order**.  
-The application automatically detects them and sends the corresponding MIDI messages.
-
-### Example
-
-Selecting Program **3** in Program Bank **5**:
-
-```
-Item default send zero for whatever is defined in user control
-Item that sends program change CC-0-5  CC-32-0  PC-3
-```
-
-The second item sends:
-
-- `CC 0 → 5` (Bank Select MSB)  
-- `CC 32 → 0` (Bank Select LSB)  
-- `PC 3` (Program Change)
-
 ## Virtual Ports
 
 Virtual MIDI ports can be defined for internal routing.  
