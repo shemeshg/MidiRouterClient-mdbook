@@ -1,1 +1,0 @@
-# Windows Service (manual installation)

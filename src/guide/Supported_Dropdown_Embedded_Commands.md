@@ -45,8 +45,10 @@ Selecting Program **3** in Program Bank **5**:
 
 ```
 Item default send zero for whatever is defined in user control
-Item that sends program change CC-0-5  CC-32-0  PC-3
+Item that sends program change | CC-0-5  CC-32-0  PC-3
 ```
+
+Commands after `|` are processed internally but hidden from the dropdown label to keep it readable.
 
 This sends:
 
