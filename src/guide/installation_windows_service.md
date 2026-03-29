@@ -1,4 +1,21 @@
-# Windows Service (manual installation)
+# Windows Service 
+
+In most situations, you don’t need to install it as a service.
+
+## Optional: Automated Installation (Beta)
+
+If you prefer not to install the Windows service manually, you can use my Scoop bucket to automate the process.  
+**This method is still in beta — use at your own risk.**
+
+Repository:  <https://github.com/shemeshg/scoop-bucket>
+
+The Scoop version installs the service and allows you to start it with:
+
+```
+sc start MidiRouterClientCli
+```
+
+## manual installation
 
 A standalone ZIP package is also provided:
 
