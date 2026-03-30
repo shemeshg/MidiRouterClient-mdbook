@@ -2,10 +2,36 @@
 
 ## Windows
 
-Install via [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
+Install via scoop <https://github.com/shemeshg/scoop-bucket>
+
+remove winget install if exists [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/):
 
 ```cmd
-winget install Shemeshg.MidiRouterClient
+winget remove Shemeshg.MidiRouterClient
+```
+
+Install scoop
+
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+irm get.scoop.sh | iex
+```
+
+add bucket
+```
+scoop bucket add extras
+scoop bucket add shemeshg https://github.com/shemeshg/scoop-bucket
+```
+
+install app
+
+```
+scoop install midi-router-client
+```
+
+kepp updated with
+```
+scoop update *
 ```
 
 Also see [Windows Service](installation_windows_service.md)

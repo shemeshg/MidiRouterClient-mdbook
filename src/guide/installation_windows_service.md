@@ -2,94 +2,60 @@
 
 In most situations, you don’t need to install it as a service.
 
-## Optional: Automated Installation (Beta)
+## **MidiRouterClient CLI / Windows Service**  
 
-If you prefer not to install the Windows service manually, you can use my Scoop bucket to automate the process.  
-**This method is still in beta — use at your own risk.**
+run as administrator 
 
-Repository:  <https://github.com/shemeshg/scoop-bucket>
+```
+scoop install -g midi-router-client-cli
+```
 
-The Scoop version installs the service and allows you to start it with:
+keep updated with
+
+```
+# as user
+scoop update *
+
+# as admin
+scoop update -g *
+```
+
+After installation, it is possible to start the service from an elevated shell:
 
 ```
 sc start MidiRouterClientCli
 ```
 
-## manual installation
-
-A standalone ZIP package is also provided:
-
-```
-midi-router-client-cli-<version>-win64.zip
-```
-
-This package contains:
-
-- A **standard Windows service executable**  
-- A **CLI executable** (same binary) for Linux/macOS‑style command‑line usage
-
-Because this ZIP is **not installed via winget**, Windows users must **manually upgrade the service** for each new version:
-
-1. Download the new ZIP  
-2. Extract it  
-3. Test the executable (important for unsigned binaries)  
-4. Update the Windows service to point to the new version
-
-Below are the correct commands.
-
 ---
 
-## Updating the Windows Service Manually
+### ⚠️ MidiRouterClient Windows Service Configuration Files
 
-Replace `<path>` with the full path to the extracted folder.
+Windows services **do not** use the same AppData folder as your logged‑in user.  
+This means the GUI/CLI app and the background service each store their configuration in **different locations**.
 
-### 1. Test the executable (important for unsigned binaries)
+#### 🧍 Normal application (GUI or CLI run manually)
 
-Before registering it as a service, ensure Windows allows the executable to run:
+Your user‑level configuration is stored here:
 
-```cmd
-midi-router-client-cli.exe --headless
+```
+C:\Users\<YourUser>\AppData\Roaming\shemeshg\MidiRouterClient.ini
 ```
 
-If Windows prompts for authorization, approve it.  
-Once it runs successfully, continue with the service update.
+#### 🖥️ Windows service (running as LocalSystem)
 
----
+The service runs under the **system account**, which has its own profile.  
+Its configuration file is stored here:
 
-### 2. Stop the existing service
-
-```cmd
-sc stop MidiRouterCli
+```
+C:\Windows\System32\config\systemprofile\AppData\Roaming\shemeshg\MidiRouterClient.ini
+C:\Windows\System32\config\systemprofile\AppData\Local\midiRouterClient.json
 ```
 
-### 3. Delete the existing service
+This is the file the **service** reads — for example, to determine which port to listen on.
 
-```cmd
-sc delete MidiRouterCli
-```
+#### 📌 Why this matters
 
-### 4. Re‑create the service with the new version
-
-⚠️ **Important:**  
-`binPath=` must be followed by a space before the quoted path, or Windows will reject the command.
-
-```cmd
-sc create MidiRouterCli binPath= "D:\midi-router-client-cli-2.21.0-win64\bin\midi-router-client-cli.exe"
-```
-
-### 5. Start the service
-
-```cmd
-sc start MidiRouterCli
-```
-
----
-
-## Notes
-
-- The service name is **MidiRouterCli**  
-- The executable must remain in the same location after creation  
-- If you move or delete the folder, the service will fail to start  
-- Upgrading requires repeating the stop/delete/create/start sequence  
-- Running the executable once manually ensures Windows trusts the unsigned binary before it runs as a service
+- Editing the **user** INI file does *not* affect the service  
+- Editing the **service** INI file does *not* affect your user app  
+- If you want the service to use the same settings as your user app, you must manually copy or edit the service’s INI file in the `systemprofile` directory
 
