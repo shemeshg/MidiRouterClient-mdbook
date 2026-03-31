@@ -33,6 +33,12 @@ sc start MidiRouterClientCli
 Windows services **do not** use the same AppData folder as your logged‑in user.  
 This means the GUI/CLI app and the background service each store their configuration in **different locations**.
 
+It is possible to change the service’s Run As account at windows service manager to your own user to avoid this issue entirely, 
+but this must be repeated after every CLI upgrade.
+
+Additionally, if the service version does not match the GUI version, 
+configuration corruption and data loss may occur.
+
 #### 🧍 Normal application (GUI or CLI run manually)
 
 Your user‑level configuration is stored here:
