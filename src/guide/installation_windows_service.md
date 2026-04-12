@@ -38,6 +38,9 @@ It is possible to change the service’s Run As account at windows service manag
 Additionally, if the service version does not match the GUI version, 
 configuration corruption and data loss may occur.
 
+The service’s startup sequence may also depend on the internal `midisrv` component.
+Adding `midisrv` as a service dependency can be helpful, especially when modern MIDI 2.0 virtual ports are defined.
+
 #### 🧍 Normal application (GUI or CLI run manually)
 
 Your user‑level configuration is stored here:
