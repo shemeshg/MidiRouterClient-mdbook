@@ -37,6 +37,12 @@ WAIT-100 WAIT-200  → total delay = 300 ms
 
 Commands scheduled at the same delay fire in the order they appear.
 
+## PRE‑ANY and POST‑ANY Execution Blocks
+
+Dropdown entries that begin with the tokens PRE-ANY or POST-ANY define additional commands that run before or after the main dropdown command.
+
+This mechanism is useful for tasks such as resetting multiple LED indicators and lighting the correct one for the selected entry, or performing any other setup/cleanup actions around the main command.
+
 ---
 
 ## **Example**
