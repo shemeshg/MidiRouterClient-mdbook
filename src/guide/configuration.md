@@ -34,9 +34,10 @@ A label may also contain **embedded MIDI commands**, which override the default 
 
 ## Virtual Ports
 
-Virtual MIDI ports can be defined for internal routing.  
-⚠️ *Note: Virtual ports are currently not supported on Windows.*
-
+Virtual MIDI ports can be used for internal routing.  
+⚠️ *Notes:*  
+- Not supported on Windows when using the modern Windows 11 MIDI 2.0 interface.  
+- On macOS, virtual ports created outside **Audio MIDI Setup** may filter NRPN messages.
 
 ## Persisting Configuration
 
