@@ -29,7 +29,7 @@ install app
 scoop install midi-router-client
 ```
 
-kepp updated with
+keep updated with
 ```
 scoop update *
 ```

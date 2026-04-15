@@ -26,7 +26,7 @@ Notes are passed internally as a `QStringList`, so even a single note is handled
 |-------|---------|
 | `WAIT-x` | Delay the next command(s) by *x* milliseconds |
 
-WAIT does **not** block the UI thread.  
+WAIT does **not** block the Server/UI thread.  
 Instead, commands are scheduled preserving order.
 
 Multiple WAITs accumulate:
@@ -37,7 +37,7 @@ WAIT-100 WAIT-200  → total delay = 300 ms
 
 Commands scheduled at the same delay fire in the order they appear.
 
-## PRE‑ANY and POST‑ANY Execution Blocks
+## PRE‑ANY and POST‑ANY 
 
 Dropdown entries that begin with the tokens PRE-ANY or POST-ANY define additional commands that run before or after the main dropdown command.
 
@@ -50,13 +50,16 @@ This mechanism is useful for tasks such as resetting multiple LED indicators and
 Selecting Program **3** in Program Bank **5**:
 
 ```
-Item default send zero for whatever is defined in user control
-Item that sends program change | CC-0-5  CC-32-0  PC-3
+PRE‑ANY this becomes like remarks never appear on dropdown
+PRE‑ANY NOTE-OFF-80-0 NOTE-OFF-81-0 
+Item 0,  default send zero for whatever is defined in user control
+Item 1, that sends program change | CC-0-5  CC-32-0  PC-3
+Item 2, light on 80 | NOTE-ON-80-0
 ```
 
 Commands after `|` are processed internally but hidden from the dropdown label to keep it readable.
 
-This sends:
+Item 1 sends:
 
 - `CC 0 → 5` (Bank Select MSB)  
 - `CC 32 → 0` (Bank Select LSB)  
