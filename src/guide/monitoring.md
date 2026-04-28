@@ -29,16 +29,16 @@ The Monitoring view displays all MIDI messages arriving at your selected input p
 Note On    | Channel 1 | Note: C4 (60) | Velocity: 100
 Note Off   | Channel 2 | Note: E4 (64) | Velocity: 0
 CC         | Channel 1 | CC 7 (Volume) | Value: 95
-Pitch Bend | Channel 1 | Value: +2048
+Pitch Bend | Channel 1 | Value: 55.123 
 ```
 
 ### Complex Messages (Auto-Translated)
 
 Instead of raw bytes, the monitor shows friendly names:
 
-**14-bit CC →** `CC 7 Hi (MSB) + CC 39 Lo (LSB) = 12,288`
+**14-bit CC →** `CC 7 Hi (MSB) + CC 39 Lo (LSB) = 33.124`
 
-**NRPN →** `NRPN #4 "Filter Cutoff" = 5,432`
+**NRPN →** `NRPN #4 "Filter Cutoff" = 244.124`
 
 **SysEx →** `SysEx (manufacturer: Roland) [F0 41 10 42 12 40 00 10 ... F7]`
 
@@ -71,7 +71,7 @@ CC 39 (Volume LSB) = 50
 
 After translation:
 ```
-CC 7 Volume = 12,850 (out of 16,383)
+CC 7 Volume = 100 + (50/127)
 ```
 
 ### Pattern 3: Nothing Appearing?

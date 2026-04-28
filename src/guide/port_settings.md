@@ -16,13 +16,10 @@ Port settings control message filtering, clock handling, and value translation a
 
 Select which types of MIDI messages to discard at the input:
 
-- **Note On / Note Off** — Piano-key style messages
-- **Control Change (CC)** — Continuous controllers and sliders
-- **Program Change** — Preset selection messages
+- **Sencee** — Device connected indication
 - **MIDI Clock** — Timing synchronization signals
 - **Sysex** — Manufacturer-specific commands
-- **Aftertouch** — Pressure data after key press
-- **Pitch Bend** — Pitch modulation wheel
+
 
 **Tip:** Enable "Ignore MIDI Clock" if your device floods the log with timing data and you're not using tempo sync.
 
@@ -90,7 +87,7 @@ Route a 14-bit CC fader to pitch wheel for smoother control.
 
 1. Select input device
 2. Enable **"14-bit CC Translation"**
-3. Choose source CCs (e.g., CC 7 + 39)
+3. Choose source CCs (e.g., CC 7, this will also use CC 39 automaticlly)
 4. Choose target format (e.g., Pitch Wheel)
 5. ✅ Fader now controls pitch smoothly
 
