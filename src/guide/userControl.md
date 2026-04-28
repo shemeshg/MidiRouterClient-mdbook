@@ -14,7 +14,7 @@ These controls send MIDI events to a predefined local port. The following MIDI e
 
 The `is64Mode` flag interprets the value `64` as the center or zero point, commonly used for bipolar ranges.
 
-Dropdowns can also be used to store and select predefined preset names.
+Dropdowns can also be used to store and select predefined preset names or send custom commands.
 
 ---
 
