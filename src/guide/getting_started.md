@@ -99,7 +99,7 @@ Now that you have a basic setup working:
 ### Scenario 1: Route a Keyboard to a Synth
 1. Create a preset named "Keyboard → Synth"
 2. Use EasyConfig to map your keyboard input to the synth output
-3. EasyConfig will route all events Note On, Note Off, and CC by default
+3. EasyConfig will route all events default
 4. ✅ Done! Press keys on your keyboard to control the synth
 
 ### Scenario 2: Create a Custom Mixer with Sliders
