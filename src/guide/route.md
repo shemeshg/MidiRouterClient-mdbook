@@ -31,11 +31,10 @@ If you're trying to understand how routes are built, the easiest way is to start
 
 **Setup:**
 1. Create a filter with type `FILTER_AND_TRANSFORM`
-2. Set `filterData1` to map CC 11 (0–127) to Pitch Wheel range (−8192 to +8191)
-   - Use transformation: `[[0, 127, -8192, 8191]]`
+2. Set `filterEvent` `[[11,14]]`
 3. Route output to synth
 
-**Pro tip:** Enable "14-bit CC Translation" in Port Settings if your controller sends dual CC messages for higher resolution.
+**Pro tip:** Enable "14-bit CC Translation" in Port Settings if your controller sends dual CC messages for higher resolution. 
 
 **Result:** Slider now controls pitch smoothly instead of in 127 discrete steps.
 
