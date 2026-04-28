@@ -51,7 +51,7 @@ See [Supported Dropdown Embedded Commands](Supported_Dropdown_Embedded_Commands.
 Virtual MIDI ports can be used for internal routing.  
 
 ⚠️ **Limitations:**
-- Not supported on Windows when using the modern Windows 11 MIDI 2.0 interface
+- Not supported on Windows however it is possible to create virtual ports using the modern Windows 11 MIDI 2.0 interface
 - On macOS, virtual ports created outside **Audio MIDI Setup** may filter `sysex` messages
 
 ---

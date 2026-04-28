@@ -30,7 +30,7 @@ A preset is where you store everything: routes, controls, and port settings.
 
 1. Open **MIDI Router Client**
 2. Navigate to the **Presets** tab
-3. Click **New Preset** and name it (e.g., "My First Setup")
+3. Click **New Preset** and name it (e.g., "My First Setup") or use the default one already created with a fresh startup.
 4. (Optional) Set activation mode to **"select"** for MIDI-triggered preset switching
 
 ✅ **Done!** Your preset is ready to use. Now it's time to route MIDI.
@@ -73,7 +73,7 @@ Use **Monitoring** to verify MIDI data:
 
 1. Go to **In Ports** tab
 2. Select your input device
-3. Click **Monitoring**
+3. Click **Monitoring** in current or external dialog window.
 4. Send MIDI to your input — you should see messages logged in real-time
 
 **Troubleshooting tips:**
@@ -99,13 +99,13 @@ Now that you have a basic setup working:
 ### Scenario 1: Route a Keyboard to a Synth
 1. Create a preset named "Keyboard → Synth"
 2. Use EasyConfig to map your keyboard input to the synth output
-3. EasyConfig will route all events default
+3. EasyConfig will route all events by default
 4. ✅ Done! Press keys on your keyboard to control the synth
 
 ### Scenario 2: Create a Custom Mixer with Sliders
 1. Create a preset
 2. Add a route forwarding CC messages
-3. In User Controls, add 8 sliders (CC 7, 10, 11, etc.)
+3. In User Controls, add sliders ex. (CC 7, 10, 11, etc.)
 4. Label them (Volume, Pan, Reverb, etc.)
 5. ✅ Now control multiple parameters with on-screen sliders
 

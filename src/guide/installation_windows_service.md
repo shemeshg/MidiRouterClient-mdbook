@@ -13,11 +13,8 @@ scoop install -g midi-router-client-cli
 keep updated with
 
 ```
-# as user
-scoop update *
-
-# as admin
-scoop update -g *
+# as admin, this will also update all user scoop apps
+scoop update -g --all
 ```
 
 After installation, it is possible to start the service from an elevated shell:

@@ -52,14 +52,9 @@ Convert **dual CC messages** (MSB/LSB) into higher-resolution formats.
 
 ### How It Works
 
-Standard CC resolution is 0–127 (7-bit). Pairing MSB (Coarse) + LSB (Fine) gives 0–16,383 resolution. This setting automatically combines them into the target format.
+Standard CC resolution is 0–127 (7-bit). Pairing MSB (Coarse) + LSB (Fine) gives 0–16,383 resolution. This setting automatically combines them into the target format (`0..127` float).
 
-**Example:**
-```
-Input: CC 7 (0-127) + CC 39 (0-127)  
-Output: Pitch Wheel (−8192 to +8191)  
-Result: 16,384 possible values
-```
+
 
 ---
 

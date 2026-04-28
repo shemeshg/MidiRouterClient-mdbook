@@ -26,62 +26,26 @@ The Monitoring view displays all MIDI messages arriving at your selected input p
 ### Simple Messages
 
 ```
-Note On    | Channel 1 | Note: C4 (60) | Velocity: 100
-Note Off   | Channel 2 | Note: E4 (64) | Velocity: 0
-CC         | Channel 1 | CC 7 (Volume) | Value: 95
-Pitch Bend | Channel 1 | Value: 55.123 
+{
+    "channel": 1,
+    "command": 8,
+    "commandStr": "noteoff",
+    "data": [
+        128,
+        73,
+        0
+    ],
+    "data1": 73,
+    "data2": 0,
+    "deltatime": 0.18201804100000002,
+    "msgtype": 0,
+    "nrpnControl": -1,
+    "nrpnData": -1,
+    "portName": "0_Launch Control XL",
+    "portNumber": 1,
+    "userdata": "{\n    \"action\": \"monitor\"\n}\n"
+}
 ```
-
-### Complex Messages (Auto-Translated)
-
-Instead of raw bytes, the monitor shows friendly names:
-
-**14-bit CC →** `CC 7 Hi (MSB) + CC 39 Lo (LSB) = 33.124`
-
-**NRPN →** `NRPN #4 "Filter Cutoff" = 244.124`
-
-**SysEx →** `SysEx (manufacturer: Roland) [F0 41 10 42 12 40 00 10 ... F7]`
-
----
-
-## Common Patterns
-
-### Pattern 1: MIDI Clock Flooding
-
-**Problem:** Monitor is flooded with clock messages  
-**Cause:** Device sends 24 clock messages per quarter note  
-**Solution:** Enable [Port Settings](port_settings.md) → "Ignore MIDI Clock"
-
-```
-MIDI Clock  (every 40ms)
-MIDI Clock  (every 40ms)
-MIDI Clock  (every 40ms)
-```
-
-### Pattern 2: 14-bit Values Split Across Two Messages
-
-**Problem:** Fader sends two separate CC messages instead of one smooth value  
-**Cause:** Device uses MSB/LSB 14-bit encoding  
-**Solution:** Enable [Port Settings](port_settings.md) → "14-bit CC Translation"
-
-```
-CC 7 (Volume MSB) = 100
-CC 39 (Volume LSB) = 50
-```
-
-After translation:
-```
-CC 7 Volume = 100 + (50/127)
-```
-
-### Pattern 3: Nothing Appearing?
-
-**Debugging steps:**
-1. **Verify physical connection** — Is the cable plugged in?
-2. **Check device is active** — Is the MIDI input showing in the port list?
-3. **Check routing** — Is this the correct input port?
-4. **Send test data** — Press a key/turn a knob on your device
-5. **Try a different device** — Confirm the port itself works
 
 ---
 
