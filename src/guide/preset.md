@@ -32,3 +32,12 @@ All available presets with activation modes and current status.
 Configuration view for a specific preset, including routes and user controls.
 
 <img src="Screenshot 2025-08-20 at 6.47.33.png" style="width:60%; height:auto;" />
+
+---
+
+## See Also
+
+- [Getting Started](getting_started.md) — Quick onboarding guide
+- [Configuration](configuration.md) — Manage presets and settings
+- [User Controls](userControl.md) — Add sliders and dropdowns to presets
+- [Routes](route.md) — Advanced routing within presets

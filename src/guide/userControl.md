@@ -30,3 +30,12 @@ Detailed settings for a single control (e.g., CC range mapping, event type).
 
 <img src="Screenshot 2025-08-20 at 10.04.11.png" style="width:60%; height:auto;" />
 
+---
+
+## See Also
+
+- [Getting Started](getting_started.md) — Quick onboarding guide
+- [Presets](preset.md) — Organize controls in presets
+- [Supported Dropdown Commands](Supported_Dropdown_Embedded_Commands.md) — Advanced dropdown features
+- [Glossary](glossary.md) — MIDI terminology reference
+

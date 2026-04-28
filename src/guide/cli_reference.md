@@ -4,7 +4,8 @@ Run MIDI Router Client from the command line for scripting, automation, and head
 
 ## Availability
 
-CLI options are available on **macOS** and **Linux** only. For Windows install cli with `scoop install -g midi-router-client-cli` 
+- **macOS** and **Linux**: CLI included with application
+- **Windows**: Install CLI tool via `scoop install -g midi-router-client-cli` 
 
 ---
 

@@ -30,13 +30,12 @@ If you're trying to understand how routes are built, the easiest way is to start
 **Goal:** Convert a slider (CC 11) into pitch wheel data for smoother control
 
 **Setup:**
-
-Backend already aware for 14bitCc if enabled at the input port
-
 1. Create a filter with type `FILTER_AND_TRANSFORM`
-2. Set `filterData1` to accept CC 11 values.
-3. Set `eventype` from CC to pitch.
-4. Route to synth output
+2. Set `filterData1` to map CC 11 (0–127) to Pitch Wheel range (−8192 to +8191)
+   - Use transformation: `[[0, 127, -8192, 8191]]`
+3. Route output to synth
+
+**Pro tip:** Enable "14-bit CC Translation" in Port Settings if your controller sends dual CC messages for higher resolution.
 
 **Result:** Slider now controls pitch smoothly instead of in 127 discrete steps.
 
@@ -173,5 +172,22 @@ Swap **data1** and **data2**, or swap **NRPN control** and **NRPN data** when us
 - `name`: Filter name
 
 ---
+
+### Filter Type 5: `SWITCH_DATA1_DATA2`
+
+**Parameters:**
+- `filterType`: `5`
+- `switchMode`: Swap behavior
+  - `0`: Swap data1 and data2
+  - `1`: Swap NRPN MSB and LSB
+
+---
+
+## See Also
+
+- [Getting Started](getting_started.md) — Quick onboarding guide
+- [Input Ports](inport.md) — Port settings and monitoring
+- [EasyConfig](easyConfig.md) — Simplified route builder
+- [Glossary](glossary.md) — MIDI terminology reference
 
 ### Filter Type 5: `SWITCH_DATA1_DATA2`

@@ -10,7 +10,7 @@ MIDI Router Client works around three key concepts:
 2. **Routes** — Instructions for how MIDI data flows from input to output
 3. **User Controls** — On-screen sliders and dropdowns that send MIDI commands
 
-**Typical workflow:** Install →  Add EasyConfig Route → Add User Controls → Create additional Preset → Activate additional preset
+**Typical workflow:** Install → Create Preset → Add Route (EasyConfig) → Add User Controls → Test & Deploy
 
 ---
 
@@ -31,7 +31,7 @@ A preset is where you store everything: routes, controls, and port settings.
 1. Open **MIDI Router Client**
 2. Navigate to the **Presets** tab
 3. Click **New Preset** and name it (e.g., "My First Setup")
-4. (optionaly) Set activation mode to **"select"** and assign midi event
+4. (Optional) Set activation mode to **"select"** for MIDI-triggered preset switching
 
 ✅ **Done!** Your preset is ready to use. Now it's time to route MIDI.
 
@@ -120,4 +120,6 @@ Now that you have a basic setup working:
 ## Need Help?
 
 - **Confused by a term?** Check the [Glossary](glossary.md)
+- **Looking for a specific feature?** Browse the [Complete Reference](reference.md)
 - **Want to understand the technical details?** Read [Configuration](configuration.md)
+- **Advanced users?** See [Advanced: CLI Reference](cli_reference.md) for automation

@@ -25,14 +25,25 @@ Once zones are created, you can assign them as sources for `note on/off` events 
 
 ---
 
-# Screenshots
+## Screenshots
 
-Split
+**Figure 1: Keyboard Split Configuration**  
+Define split points to divide the keyboard into separate control zones.
 
 <img src="Screenshot 2025-08-20 at 7.00.59.png" style="width:60%; height:auto;" />
 
-EasyConfig 
+**Figure 2: EasyConfig Main Interface**  
+Simple guided setup for creating basic routes.
 
 <img src="Screenshot 2025-08-20 at 7.02.17.png" style="width:60%; height:auto;" />
+
+---
+
+## See Also
+
+- [Getting Started](getting_started.md) — Quick onboarding guide
+- [Routes](route.md) — Advanced routing after learning EasyConfig
+- [Input Ports](inport.md) — Manage MIDI input sources
+- [Glossary](glossary.md) — MIDI terminology reference
 
 

@@ -1,6 +1,6 @@
 # MIDI Configuration Overview
 
-**TL;DR:** Presets bundle routing rules and user controls. Configuration auto-saves to JSON. Use the `Login` or `about`  tab to access or backup configuration file.
+**TL;DR:** Presets bundle routing rules and user controls. Configuration auto-saves to JSON. Use the **Login** tab or **⋮ menu** to access and backup your configuration file.
 
 This document describes how configuration, presets, routing, and user‑control dropdowns work within the application. It also explains how configuration is stored and how users can manage it through the interface.
 
@@ -85,7 +85,7 @@ The `⋮` (menu) button provides:
 
 ## CLI Options (Advanced)
 
-> 📌 **Note:** CLI options are available on **macOS** and **Linux** only.
+> 📌 **Note:** CLI available on macOS/Linux (included). Windows users: Install via `scoop install -g midi-router-client-cli`
 
 Useful for automation and headless deployments. For example:
 ```bash
@@ -112,5 +112,8 @@ Load, save, and apply presets; access configuration files; manage remote server 
 
 ## See Also
 
-- [Getting Started](getting_started.md)
+- [Getting Started](getting_started.md) — Quick onboarding guide
+- [Presets](preset.md) — Manage preset activation modes
+- [Advanced: CLI Reference](cli_reference.md) — Automation and remote control
+- [Glossary](glossary.md) — MIDI terminology reference
 
