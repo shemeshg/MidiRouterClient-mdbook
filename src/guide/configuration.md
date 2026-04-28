@@ -2,13 +2,16 @@
 
 This document describes how configuration, presets, routing, and user‑control dropdowns work within the application. It also explains how configuration is stored and how users can manage it through the interface.
 
+## Login tab
+
+The application uses a client–server model and automatically connects to a local port. Most users don’t need to change this, but in complex networks, `connection bookmarks` make it easier to connect to remote servers.
+
+Each machine has its own configuration. To trigger a preset change on a remote server, create a preset on that server that responds to a MIDI command, then send that command from a local user control via a virtual port routed to the remote destination.
 
 ## Connected Inputs and Outputs
 
 The configuration includes a list of all currently active MIDI ports.  
 These ports may be physical or virtual (where supported).
-
-
 
 ## Presets
 
@@ -48,6 +51,7 @@ Because the schema may change between versions, it is recommended to back up you
 
 The **Login** tab allows you to load the configuration when the application starts, 
 and save it when the application closes or when changes are applied (with throttling).
+
 
 ### Accessing the Configuration File
 
