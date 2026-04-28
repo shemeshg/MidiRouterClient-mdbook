@@ -1,47 +1,118 @@
 # Route
 
+**TL;DR:** Routes are sequences of **chains**, each containing **filters** that transform MIDI data. Start with **EasyConfig** to learn by example, then inspect the generated Route.
+
 A **Route** is a container for multiple chains, enabling modular and sequential processing of MIDI data.
 
-### Learning to Create Routes
+## Learning to Create Routes
 
 If you're trying to understand how routes are built, the easiest way is to start with an `EasyConfig`. Once you've created one, inspect how it's automatically translated into a full route. This reverse-engineering method offers a hands-on, intuitive way to grasp the structure and logic of route creation—without needing to dive into low-level details right away.
 
 ---
 
-## Chains
+## Common Scenarios
 
-A **chain** defines a linear path composed of a sequence of **filters**. Each filter performs a specific transformation or analysis on the MIDI stream, allowing for flexible and customizable data manipulation as it flows through the chain.
+### Scenario 1: Route Keyboard to Synthesizer
+
+**Goal:** Send all MIDI from keyboard to synth output
+
+**Setup:**
+1. Use EasyConfig
+2. Input: Keyboard
+3. Output: Synthesizer (MIDI destination)
+
+**Result:** Every key press and control movement on keyboard goes to synth.
 
 ---
 
-# Filter Types
+### Scenario 2: Transform CC to Pitch Wheel
+
+**Goal:** Convert a slider (CC 11) into pitch wheel data for smoother control
+
+**Setup:**
+
+Backend already aware for 14bitCc if enabled at the input port
+
+1. Create a filter with type `FILTER_AND_TRANSFORM`
+2. Set `filterData1` to accept CC 11 values.
+3. Set `eventype` from CC to pitch.
+4. Route to synth output
+
+**Result:** Slider now controls pitch smoothly instead of in 127 discrete steps.
+
+---
+
+### Scenario 3: Schedule Notes for Quantized Playback
+
+**Goal:** Record MIDI notes and play them back on the next bar boundary
+
+**Setup:**
+1. Create a route with `SCHEDULE_TO` filter
+2. Set `deferredType` to `QUANTIZE_BAR` (align to nearest bar)
+3. Ensure MIDI clock is being received
+4. Route output to instrument
+
+**Result:** Notes are held and released on quantized grid positions.
+
+---
+
+## Chains
+
+A **chain** defines a linear path composed of a sequence of **filters**. Each filter performs a specific transformation or analysis on the MIDI stream. Filters execute in order, so output of one filter becomes input to the next.
+
+---
+
+## Filter Types
 
 ### `TO_MIDI_DESTINATION`
 Routes MIDI events to a specific local MIDI destination.
 
+**Use case:** Send keyboard MIDI to a synthesizer, sampler, or drum machine.
+
+---
+
 ### `TO_CONSOLE`
 Logs MIDI events to the console (either server or client). This filter is also used for inter-server communication, such as sending logged MIDI messages to a client or triggering preset changes via MIDI.
 
+**Use case:** Debug routing issues, send MIDI to remote servers.
+
+---
+
 ### `TO_NETWORK`
-Sends all MIDI events to a remote destination.
+Sends all MIDI events to a remote destination over the network.
+
+**Use case:** Route MIDI to another computer running MIDI Router Client Server.
+
+---
 
 ### `SCHEDULE_TO`
 Holds MIDI events and schedules them for future delivery based on `deferredType` and `deferredTo` parameters. Requires MIDI clock events to function properly.
 
+**Use case:** Quantize notes to beat grid, delay messages by bar count.
+
+---
+
 ### `FILTER_AND_TRANSFORM`
-Allows both filtering and transforming MIDI event data. Transformation notation includes:
+Allows both filtering and transforming MIDI event data. Advanced value mapping for precise control.
 
-- `[[fromStart, fromEnd, toStart, toEnd]]` — Maps a range from `fromStart` to `fromEnd` onto `toStart` to `toEnd`.
-- `[[fromStart, fromEnd, toStart]]` — Short form where `toEnd = toStart + (fromEnd - fromStart)`.
-- `[[value1, value2]]` — Maps `value1` to `value2`.
-- `[[value]]` — Equivalent to `[[value, value]]`, a single value mapping.
+**Use case:** Convert CC ranges, filter specific channels, map Note On to CC, etc.
 
+**Transformation notation:**
+- `[[fromStart, fromEnd, toStart, toEnd]]` — Maps a range from `fromStart` to `fromEnd` onto `toStart` to `toEnd`
+- `[[fromStart, fromEnd, toStart]]` — Short form where `toEnd = toStart + (fromEnd - fromStart)`
+- `[[value1, value2]]` — Maps `value1` to `value2`
+- `[[value]]` — Equivalent to `[[value, value]]`, a single value mapping
+
+---
 
 ### `SWITCH_DATA1_DATA2`
 Swap **data1** and **data2**, or swap **NRPN control** and **NRPN data** when using **NRPN**.
-This can be useful, for example, when routing a **Note On** key value to **CC** data.
 
-# 📚 Reference
+**Use case:** Route Note On key values to CC data, swap NRPN parameters.
+
+---
+
+## 📚 Reference: Detailed Parameters
 
 ### Filter Type 0: `TO_MIDI_DESTINATION`
 
@@ -69,7 +140,6 @@ This can be useful, for example, when routing a **Note On** key value to **CC** 
 - `midiInputName`: MIDI input port name
 - `serverName`: Target server name
 - `serverPort`: Target server port
-
 
 ---
 

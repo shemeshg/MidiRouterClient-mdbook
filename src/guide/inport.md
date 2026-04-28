@@ -1,37 +1,63 @@
 # Input Ports
 
-This tab lets you set up and manage your input ports.  
-Only ports that are currently connected will be shown.
+The **In Ports** tab is where you configure how MIDI inputs are processed and routed.
 
-## Port Settings
+## Overview
 
-Here’s what you can adjust:
+Only ports that are currently connected will be shown. The In Ports tab has three main functions:
 
-- **Ignore Message Types**: Choose which types of MIDI messages to ignore.
-- **MIDI Clock Settings**: Control how MIDI clock signals are handled, including advanced options like converting `SPP` (Song Position Pointer) to time signatures.
-- **14-bit CC Translation**: Enables more accurate conversion of 14-bit MIDI messages—for example, turning them into pitch wheel data.
+1. **[Port Settings](port_settings.md)** — Filter message types, configure MIDI clock, enable 14-bit translation
+2. **[Monitoring](monitoring.md)** — Inspect incoming MIDI messages in real-time
+3. **[Routing](#routing-options)** — Create or configure routes for incoming data
 
-> Only the active and selected preset determines the applied port settings.
+> **Note:** All settings are preset-specific. Different presets can have different configurations for the same port.
 
-## Monitoring
+---
 
-Monitoring lets you keep an eye on incoming MIDI messages.
- It also makes tricky stuff—like 14-bit values or NRPNs—way easier to read by turning them into something more understandable.
+## Quick Links
 
+- 📊 **[Port Settings](port_settings.md)** — Configure message filtering and value translation
+- 🔍 **[Monitoring](monitoring.md)** — Real-time MIDI inspection and debugging
+
+---
 
 ## Routing Options
 
 You can set up routing in two ways:
 
-- **EasyConfig**: A simple, beginner-friendly tool that helps you create routing setups without needing to dive into technical details.
-- **Routes**: A more advanced option for users who want full control over routing configurations.
+### **EasyConfig** (Recommended for Beginners)
+A simple, guided tool that helps you create routing setups without needing to dive into technical details. Perfect for learning.
 
-EasyConfig automatically builds the Routes setup for you, so you get the best of both worlds!
+**Best for:**
+- First-time setups
+- Simple A-to-B routing
+- Quick testing
+
+### **Routes** (Advanced)
+Full control over routing configurations. Build custom filter chains, transformations, and complex workflows.
+
+**Best for:**
+- Custom transformations
+- Multi-stage processing
+- Scheduling and advanced features
+
+**How they work together:** EasyConfig automatically generates a full Route behind the scenes. After creating an EasyConfig, inspect the generated Route to understand advanced concepts.
 
 ---
 
-# Screenshots
+## Getting Started
 
-In ports
+1. Select an input port from the list
+2. (Optional) Adjust [Port Settings](port_settings.md) for filtering/translation
+3. (Optional) Use [Monitoring](monitoring.md) to verify data arrival
+4. Create a route using **EasyConfig** or **Routes**
+5. Test with [Monitoring](monitoring.md)
 
-<img src="Screenshot 2025-08-20 at 6.58.34.png" style="width:60%; height:auto;" />
+---
+
+## See Also
+
+- [Getting Started](getting_started.md)
+- [EasyConfig](easyConfig.md)
+- [Routes](route.md)
+- [Glossary](glossary.md)

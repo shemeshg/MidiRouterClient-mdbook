@@ -21,12 +21,14 @@ when the assigned MIDI event is received
 
 ---
 
-# Screenshots
+## Screenshots
 
-Presets
+**Figure 1: Presets List**  
+All available presets with activation modes and current status.
 
 <img src="Screenshot 2025-08-20 at 6.47.18.png" style="width:60%; height:auto;" />
 
-Preset
+**Figure 2: Preset Details**  
+Configuration view for a specific preset, including routes and user controls.
 
 <img src="Screenshot 2025-08-20 at 6.47.33.png" style="width:60%; height:auto;" />

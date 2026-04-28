@@ -18,14 +18,15 @@ Dropdowns can also be used to store and select predefined preset names.
 
 ---
 
-# Screenshorts
+## Screenshots
 
-controls
+**Figure 1: User Controls Panel**  
+The main controls view showing available sliders and dropdowns for the active preset.
 
 <img src="Screenshot 2025-08-20 at 10.15.17.png" style="width:60%; height:auto;" />
 
-
-control
+**Figure 2: Individual Control Configuration**  
+Detailed settings for a single control (e.g., CC range mapping, event type).
 
 <img src="Screenshot 2025-08-20 at 10.04.11.png" style="width:60%; height:auto;" />
 
