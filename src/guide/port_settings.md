@@ -31,12 +31,10 @@ Configure how **MIDI Clock** and **Song Position Pointer (SPP)** messages are pr
 
 ### Options
 
-- **Ignore MIDI Clock** — Discard all timing signals
-- **Use for tempo** — Extract BPM from clock messages
 - **Convert SPP to time signature** — Translate song position into bar/beat notation
-- **Quantize outgoing messages** — Align MIDI output to quantized grid positions
+- **Propagate clock** - Propagate to other inputs
 
-**Use case:** When syncing multiple devices, enable "Use for tempo" to lock to the master clock.
+**Use case:** When syncing multiple devices based on selected clock
 
 ---
 
@@ -48,12 +46,7 @@ Convert **dual CC messages** (MSB/LSB) into higher-resolution formats.
 
 - Converting **14-bit CC to Pitch Wheel** for finer pitch control
 - Mapping **14-bit CCs to NRPN values** for parameter precision
-- Increasing resolution from 0–127 to 0–16,383
-
-### How It Works
-
-Standard CC resolution is 0–127 (7-bit). Pairing MSB (Coarse) + LSB (Fine) gives 0–16,383 resolution. This setting automatically combines them into the target format (`0..127` float).
-
+- Increasing resolution from 0–127 to 0–16,383 (though internaly represented as float 0..127)
 
 
 ---
