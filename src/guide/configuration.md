@@ -6,9 +6,13 @@ This document describes how configuration, presets, routing, and user‑control 
 
 ## Login Tab
 
-The application uses a client–server model and automatically connects to a local port. Most users don't need to change this, but in complex networks, `connection bookmarks` make it easier to connect to remote servers.
+The application uses a client–server model and auto‑connects to a local port. Most users won’t need to adjust this, but in complex networks,`*connection bookmarks` simplify connecting to remote servers.
 
-Each machine has its own configuration. To trigger a preset change on a remote server, create a preset on that server that responds to a MIDI command, then send that command from a local `user control` via a virtual port routed to the remote network destination.
+Modern operating systems support `mDNS`, so connecting to `machine.local` is usually straightforward.
+
+All communication uses `TCP`, which—unlike `ipMIDI`—remains reliable over Wi‑Fi.
+
+Each machine has its own configuration. To trigger a preset on a remote server, create a preset there that responds to a MIDI command, then send that command from a local `User Control` through a local virtual port routed to the remote destination.
 
 ---
 
