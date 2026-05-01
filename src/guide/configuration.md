@@ -10,7 +10,7 @@ The application uses a client–server model and auto‑connects to a local port
 
 Modern operating systems support `mDNS`, so connecting to `machine.local` is usually straightforward.
 
-All communication uses `TCP`, which—unlike `ipMIDI`—remains reliable over Wi‑Fi.
+All communication uses `TCP` `websocket` and not `RTP MIDI` `UDP`.
 
 Each machine has its own configuration. To trigger a preset on a remote server, create a preset there that responds to a MIDI command, then send that command from a local `User Control` through a local virtual port routed to the remote destination.
 
