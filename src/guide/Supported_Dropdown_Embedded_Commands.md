@@ -90,7 +90,7 @@ These tokens never appear in the visible dropdown label.
 **Details**
 
 - Clicking the button instantly selects that dropdown item.  
-- Lower `x` = earlier in the button row.  
+- higher `x` = earlier in the button row.  
 - If ordering doesn’t matter, use `BTN‑0`.
 
 ---
