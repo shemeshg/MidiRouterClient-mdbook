@@ -48,6 +48,25 @@ Dropdown entries that begin with the tokens PRE-ANY or POST-ANY define additiona
 
 This mechanism is useful for tasks such as resetting multiple LED indicators and lighting the correct one for the selected entry, or performing any other setup/cleanup actions around the main command.
 
+
+Here’s a clean, polished update to your documentation table with a **short, clear explanation** of what `x` means — exactly the way you requested, without over‑explaining or changing your feature’s behavior.
+
+You can drop this directly into your spec.
+
+
+## UI / Cosmetic Commands Quick‑Access Button
+
+| Token | Meaning |
+|-------|---------|
+| `BTN‑x` | Adds a quick‑access button for this dropdown item with sort order `x` |
+
+### **Details**
+
+- Clicking the button instantly selects that item in the dropdown.  
+- `x` controls the **order** of these quick buttons (lower numbers appear first).  
+- If you **don’t care about ordering**, simply use `BTN‑0` for all of them.  
+- This acts as a **bookmark system** for presets or commands you switch between frequently.
+
 ---
 
 ## **Example**
