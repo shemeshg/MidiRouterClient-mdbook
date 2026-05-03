@@ -1,118 +1,135 @@
+Absolutely — your content is solid, but the structure can be tightened so it reads like a clean, professional spec.  
+Below is a **fully reformatted, clearer, more scannable version** while keeping every technical detail intact.
+
+---
+
 # **Supported Dropdown Embedded Commands**
 
 A dropdown label may include any of the following tokens.  
-They can appear **anywhere in the label**, in **any order**, and the system will automatically detect and schedule them.
+They can appear **anywhere**, in **any order**, and the system will automatically detect and schedule them.
 
-## **MIDI Control Commands**
+---
 
-| Token | Meaning |
-|-------|---------|
-| `CC-x-y` | Send Control Change *x* with value *y* |
-| `PC-x` | Send Program Change *x* |
-| `NRPN-x-y` | Send NRPN parameter *x* with value *y* |
-
-## **Note Commands**
+## MIDI Control Commands
 
 | Token | Meaning |
 |-------|---------|
-| `NOTE-ON-x-y` | Play note *x* with velocity *y* |
-| `NOTE-OFF-x-y` | Stop note *x* with velocity *y* |
+| `CC‑x‑y` | Send Control Change **x** with value **y** |
+| `PC‑x` | Send Program Change **x** |
+| `NRPN‑x‑y` | Send NRPN parameter **x** with value **y** |
 
-## **Raw MIDI message**
+---
 
-| Token | Meaning |
-| --- | --- |
-| `RAW‑x` | Send a raw MIDI message, where *x* is a sequence of hex bytes separated by underscores |
-
-
-## **Timing Commands**
+## Note Commands
 
 | Token | Meaning |
 |-------|---------|
-| `WAIT-x` | Delay the next command(s) by *x* milliseconds |
+| `NOTE‑ON‑x‑y` | Play note **x** with velocity **y** |
+| `NOTE‑OFF‑x‑y` | Stop note **x** with velocity **y** |
 
-WAIT does **not** block the Server/UI thread.  
-Instead, commands are scheduled preserving order.
+---
 
-Multiple WAITs accumulate:
+## Raw MIDI Message
+
+| Token | Meaning |
+|-------|---------|
+| `RAW‑x` | Send a raw MIDI message, where **x** is a sequence of hex bytes separated by underscores |
+
+**Examples**
+
+```
+RAW-90_3C_64
+```
+
+- 90 → Note On, Channel 1  
+- 3C → Note 60 (Middle C)  
+- 64 → Velocity 100  
+
+```
+RAW‑F0_7E_7F_09_01_F7
+```
+
+Sends a SysEx message.
+
+---
+
+## ⏱️ Timing Commands
+
+| Token | Meaning |
+|-------|---------|
+| `WAIT‑x` | Delay the next command(s) by **x ms** |
+
+**Notes**
+
+- WAIT **does not block** the UI or server thread.  
+- Delays accumulate:
 
 ```
 WAIT-100 WAIT-200  → total delay = 300 ms
 ```
 
-Commands scheduled at the same delay fire in the order they appear.
-
-## PRE‑ANY and POST‑ANY 
-
-Dropdown entries that begin with the tokens PRE-ANY or POST-ANY define additional commands that run before or after the main dropdown command.
-
-This mechanism is useful for tasks such as resetting multiple LED indicators and lighting the correct one for the selected entry, or performing any other setup/cleanup actions around the main command.
-
-
-Here’s a clean, polished update to your documentation table with a **short, clear explanation** of what `x` means — exactly the way you requested, without over‑explaining or changing your feature’s behavior.
-
-You can drop this directly into your spec.
-
-
-## UI / Cosmetic Commands Quick‑Access Button
-
-| Token | Meaning |
-|-------|---------|
-| `BTN‑x` | Adds a quick‑access button for this dropdown item with sort order `x` |
-
-### **Details**
-
-- Clicking the button instantly selects that item in the dropdown.  
-- `x` controls the **order** of these quick buttons (lower numbers appear first).  
-- If you **don’t care about ordering**, simply use `BTN‑0` for all of them.  
-- This acts as a **bookmark system** for presets or commands you switch between frequently.
+- Commands scheduled for the same timestamp execute **in label order**.
 
 ---
 
-## **Example**
+## 🔁 PRE‑ANY and POST‑ANY
 
-Selecting Program **3** in Program Bank **5**:
+Dropdown entries beginning with **PRE‑ANY** or **POST‑ANY** define additional commands that run **before** or **after** the main dropdown command.
+
+Use cases include:
+
+- Resetting LED indicators  
+- Preparing controller state  
+- Cleanup actions after the main command  
+
+These tokens never appear in the visible dropdown label.
+
+---
+
+## ⚡ Quick‑Access Button Token
+
+| Token | Meaning |
+|-------|---------|
+| `BTN‑x` | Adds a quick‑access button with sort order **x** |
+
+**Details**
+
+- Clicking the button instantly selects that dropdown item.  
+- Lower `x` = earlier in the button row.  
+- If ordering doesn’t matter, use `BTN‑0`.
+
+---
+
+# **Examples**
+
+## Program Change with Bank Select
 
 ```
-PRE‑ANY this becomes like remarks never appear on dropdown
-PRE‑ANY NOTE-OFF-80-0 NOTE-OFF-81-0 
-Item 0,  default send zero for whatever is defined in user control
-Item 1, that sends program change | CC-0-5  CC-32-0  PC-3
+PRE‑ANY NOTE-OFF-80-0 NOTE-OFF-81-0
+Item 0, default send zero for whatever is defined in user control
+Item 1, that sends program change | CC-0-5 CC-32-0 PC-3
 Item 2, light on 80 | NOTE-ON-80-0
 ```
 
-Commands after `|` are processed internally but hidden from the dropdown label to keep it readable.
+Commands after `|` are internal and hidden from the label.
 
-Item 1 sends:
+**Item 1 sends:**
 
 - `CC 0 → 5` (Bank Select MSB)  
 - `CC 32 → 0` (Bank Select LSB)  
 - `PC 3` (Program Change)
 
 ---
-Raw example:
 
-- RAW-90_3C_64
-
-  90 → Note On, Channel 1
-  3C → Note number 60 (Middle C)
-  64 → Velocity 100
-
-- RAW‑F0_7E_7F_09_01_F7 → sends a SysEx message
-
----
-
-## **Example with Notes and Timing**
+## Notes + Timing Example
 
 ```
 NOTE-ON-60-100 WAIT-500 NOTE-OFF-60-50
 ```
 
-This will:
+Sequence:
 
 1. Play note 60 at velocity 100  
 2. Wait 500 ms  
 3. Stop note 60 at velocity 50  
-
-
 
