@@ -73,7 +73,12 @@ Item 1 sends:
 ---
 Raw example:
 
-- RAW‑90_40_7F → sends 90 40 7F
+- RAW-90_3C_64
+
+  90 → Note On, Channel 1
+  3C → Note number 60 (Middle C)
+  64 → Velocity 100
+
 - RAW‑F0_7E_7F_09_01_F7 → sends a SysEx message
 
 ---
