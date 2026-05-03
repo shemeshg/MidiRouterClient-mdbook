@@ -24,8 +24,6 @@ They can appear **anywhere in the label**, in **any order**, and the system will
 | --- | --- |
 | `RAW‑x` | Send a raw MIDI message, where *x* is a sequence of hex bytes separated by underscores |
 
-* RAW‑90_40_7F → sends 90 40 7F
-* RAW‑F0_7E_7F_09_01_F7 → sends a SysEx message
 
 ## **Timing Commands**
 
@@ -71,6 +69,12 @@ Item 1 sends:
 - `CC 0 → 5` (Bank Select MSB)  
 - `CC 32 → 0` (Bank Select LSB)  
 - `PC 3` (Program Change)
+
+---
+Raw example:
+
+- RAW‑90_40_7F → sends 90 40 7F
+- RAW‑F0_7E_7F_09_01_F7 → sends a SysEx message
 
 ---
 
