@@ -18,7 +18,14 @@ They can appear **anywhere in the label**, in **any order**, and the system will
 | `NOTE-ON-x-y` | Play note *x* with velocity *y* |
 | `NOTE-OFF-x-y` | Stop note *x* with velocity *y* |
 
-Notes are passed internally as a `QStringList`, so even a single note is handled consistently with multi‑note APIs.
+## **Raw MIDI message**
+
+| Token | Meaning |
+| --- | --- |
+| `RAW‑x` | Send a raw MIDI message, where *x* is a sequence of hex bytes separated by underscores |
+
+* RAW‑90_40_7F → sends 90 40 7F
+* RAW‑F0_7E_7F_09_01_F7 → sends a SysEx message
 
 ## **Timing Commands**
 
