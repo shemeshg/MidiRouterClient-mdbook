@@ -1,8 +1,3 @@
-Absolutely — your content is solid, but the structure can be tightened so it reads like a clean, professional spec.  
-Below is a **fully reformatted, clearer, more scannable version** while keeping every technical detail intact.
-
----
-
 # **Supported Dropdown Embedded Commands**
 
 A dropdown label may include any of the following tokens.  
