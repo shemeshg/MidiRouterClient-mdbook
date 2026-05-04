@@ -3,6 +3,8 @@
 A dropdown label may include any of the following tokens.  
 They can appear **anywhere**, in **any order**, and the system will automatically detect and schedule them.
 
+Text after `|` are hidden from the label.
+
 ---
 
 ## MIDI Control Commands
@@ -48,7 +50,7 @@ Sends a SysEx message.
 
 ---
 
-## ⏱️ Timing Commands
+## Timing Commands
 
 | Token | Meaning |
 |-------|---------|
@@ -67,7 +69,7 @@ WAIT-100 WAIT-200  → total delay = 300 ms
 
 ---
 
-## 🔁 PRE‑ANY and POST‑ANY
+## PRE‑ANY and POST‑ANY
 
 Dropdown entries beginning with **PRE‑ANY** or **POST‑ANY** define additional commands that run **before** or **after** the main dropdown command.
 
@@ -81,7 +83,7 @@ These tokens never appear in the visible dropdown label.
 
 ---
 
-## ⚡ Quick‑Access Button Token
+## Quick‑Access Button Token
 
 | Token | Meaning |
 |-------|---------|
@@ -90,8 +92,7 @@ These tokens never appear in the visible dropdown label.
 **Details**
 
 - Clicking the button instantly selects that dropdown item.  
-- higher `x` = earlier in the button row.  
-- If ordering doesn’t matter, use `BTN‑0`.
+- If ordering doesn’t matter, use `BTN‑0` for all.
 
 ---
 
@@ -105,8 +106,6 @@ Item 0, default send zero for whatever is defined in user control
 Item 1, that sends program change | CC-0-5 CC-32-0 PC-3
 Item 2, light on 80 | NOTE-ON-80-0
 ```
-
-Commands after `|` are internal and hidden from the label.
 
 **Item 1 sends:**
 
