@@ -2,11 +2,11 @@
 
 **TL;DR:** Presets bundle routing rules and user controls. Configuration auto-saves to JSON. Use the **Login** tab or **⋮ menu** to access and backup your configuration file.
 
-This document describes how configuration, presets, routing, and user‑control dropdowns work within the application. It also explains how configuration is stored and how users can manage it through the interface.
+This document describes how configuration, presets, routing, and user-control dropdowns work within the application. It also explains how configuration is stored and how users can manage it through the interface.
 
 ## Login Tab
 
-The application uses a client–server model and auto‑connects to a local port. Most users won’t need to adjust this, but in complex networks,`*connection bookmarks` simplify connecting to remote servers.
+The application uses a client–server model and auto-connects to a local port. Most users won’t need to adjust this, but in complex networks,`*connection bookmarks` simplify connecting to remote servers.
 
 Modern operating systems support `mDNS`, so connecting to `machine.local` is usually straightforward.
 
@@ -37,7 +37,7 @@ Presets allow you to quickly restore a complete setup without manually reconfigu
 ## Dropdowns
 
 Dropdowns allow users to select values using friendly labels.  
-A label may also contain **embedded MIDI commands**, which override the default user‑control behavior.
+A label may also contain **embedded MIDI commands**, which override the default user-control behavior.
 
 ### How Dropdowns Work
 
@@ -96,7 +96,7 @@ Useful for automation and headless deployments. For example:
 ./midi-router-client --apply --preset-name "main"
 ```
 
-Since the application does not automatically re‑apply when MIDI devices disconnect/reconnect, CLI preset application is handy for scripting.
+Since the application does not automatically re-apply when MIDI devices disconnect/reconnect, CLI preset application is handy for scripting.
 
 See [Advanced: CLI Reference](cli_reference.md) for complete CLI documentation including headless mode and remote server control.
 

@@ -11,9 +11,9 @@ Text after `|` are hidden from the label.
 
 | Token | Meaning |
 |-------|---------|
-| `CC‑x‑y` | Send Control Change **x** with value **y** |
-| `PC‑x` | Send Program Change **x** |
-| `NRPN‑x‑y` | Send NRPN parameter **x** with value **y** |
+| `CC-x-y` | Send Control Change **x** with value **y** |
+| `PC-x` | Send Program Change **x** |
+| `NRPN-x-y` | Send NRPN parameter **x** with value **y** |
 
 ---
 
@@ -21,8 +21,8 @@ Text after `|` are hidden from the label.
 
 | Token | Meaning |
 |-------|---------|
-| `NOTE‑ON‑x‑y` | Play note **x** with velocity **y** |
-| `NOTE‑OFF‑x‑y` | Stop note **x** with velocity **y** |
+| `NOTE-ON-x-y` | Play note **x** with velocity **y** |
+| `NOTE-OFF-x-y` | Stop note **x** with velocity **y** |
 
 ---
 
@@ -30,7 +30,7 @@ Text after `|` are hidden from the label.
 
 | Token | Meaning |
 |-------|---------|
-| `RAW‑x` | Send a raw MIDI message, where **x** is a sequence of hex bytes separated by underscores |
+| `RAW-x` | Send a raw MIDI message, where **x** is a sequence of hex bytes separated by underscores |
 
 **Examples**
 
@@ -43,7 +43,7 @@ RAW-90_3C_64
 - 64 → Velocity 100  
 
 ```
-RAW‑F0_7E_7F_09_01_F7
+RAW-F0_7E_7F_09_01_F7
 ```
 
 Sends a SysEx message.
@@ -54,7 +54,7 @@ Sends a SysEx message.
 
 | Token | Meaning |
 |-------|---------|
-| `WAIT‑x` | Delay the next command(s) by **x ms** |
+| `WAIT-x` | Delay the next command(s) by **x ms** |
 
 **Notes**
 
@@ -69,9 +69,9 @@ WAIT-100 WAIT-200  → total delay = 300 ms
 
 ---
 
-## PRE‑ANY and POST‑ANY
+## PRE-ANY and POST-ANY
 
-Dropdown entries beginning with **PRE‑ANY** or **POST‑ANY** define additional commands that run **before** or **after** the main dropdown command.
+Dropdown entries beginning with `PRE-ANY` or `POST-ANY` define additional commands that run **before** or **after** the main dropdown command.
 
 Use cases include:
 
@@ -83,16 +83,16 @@ These tokens never appear in the visible dropdown label.
 
 ---
 
-## Quick‑Access Button Token
+## Quick-Access Button Token
 
 | Token | Meaning |
 |-------|---------|
-| `BTN‑x` | Adds a quick‑access button with sort order **x** |
+| `BTN-x` | Adds a quick-access button with sort order **x** |
 
 **Details**
 
 - Clicking the button instantly selects that dropdown item.  
-- If ordering doesn’t matter, use `BTN‑0` for all.
+- If ordering doesn’t matter, use `BTN-0` for all.
 
 ---
 
@@ -101,10 +101,8 @@ These tokens never appear in the visible dropdown label.
 ## Program Change with Bank Select
 
 ```
-PRE‑ANY NOTE-OFF-80-0 NOTE-OFF-81-0
 Item 0, default send zero for whatever is defined in user control
 Item 1, that sends program change | CC-0-5 CC-32-0 PC-3
-Item 2, light on 80 | NOTE-ON-80-0
 ```
 
 **Item 1 sends:**
@@ -113,6 +111,13 @@ Item 2, light on 80 | NOTE-ON-80-0
 - `CC 32 → 0` (Bank Select LSB)  
 - `PC 3` (Program Change)
 
+## Control surface indication on preset change.
+
+```
+PRE-ANY NOTE-ON-41-0 NOTE-ON-42-0  
+Preset 1 | NOTE-ON-41-28
+Preset 2 | NOTE-ON-42-28
+```
 ---
 
 ## Notes + Timing Example
