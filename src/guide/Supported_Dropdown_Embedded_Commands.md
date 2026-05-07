@@ -3,19 +3,42 @@
 A dropdown label may include any of the following tokens.  
 They can appear **anywhere**, in **any order**, and the system will automatically detect and schedule them.
 
-Text after `|` are hidden from the label.
+## **Quick Cheat‑Sheet**
 
-Dropdown text may be split across multiple lines by prefixing continuation lines with `..`
+You can embed commands directly inside dropdown labels.  
+Everything after `|` is hidden from the visible label.
 
-example:
+**Supported tokens:**
+
+- `CC-x-y` → Control Change  
+- `PC-x` → Program Change  
+- `NRPN-x-y` → NRPN parameter  
+- `NOTE-ON-x-y` / `NOTE-OFF-x-y` → Play/stop notes  
+- `RAW-xx_xx_xx` → Raw MIDI bytes  
+- `WAIT-x` → Delay next command(s)  
+- `PRE-ANY ...` → Commands before main action  
+- `POST-ANY ...` → Commands after main action  
+- `BTN-x` → Quick‑access button
+
+**Line continuation:**  
+Prefix a line with `..` to join it with the previous one.
+
+Example:
 
 ```
 Preset 1
 .. hellow
 .. | NOTE-ON-41-28
-Preset 2 
+Preset 2
 ..world
 ..| NOTE-ON-42-28
+```
+
+Becomes:
+
+```
+Preset 1 hellow | NOTE-ON-41-28
+Preset 2 world | NOTE-ON-42-28
 ```
 
 ---
