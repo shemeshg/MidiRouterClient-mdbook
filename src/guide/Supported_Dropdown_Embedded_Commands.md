@@ -5,6 +5,19 @@ They can appear **anywhere**, in **any order**, and the system will automaticall
 
 Text after `|` are hidden from the label.
 
+Dropdown text may be split across multiple lines by prefixing continuation lines with `..`
+
+example:
+
+```
+Preset 1
+.. hellow
+.. | NOTE-ON-41-28
+Preset 2 
+..world
+..| NOTE-ON-42-28
+```
+
 ---
 
 ## MIDI Control Commands
