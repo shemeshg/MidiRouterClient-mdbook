@@ -50,12 +50,12 @@ Monitoring can additionally be enabled by inserting a `monitor` filter anywhere 
 
 Before building complex routes, use monitoring to confirm:
 
-✅ Input device is recognized  
-✅ MIDI data arrives without errors  
-✅ Message types match expectations  
-✅ Value ranges are correct  
-✅ No timing issues
-✅ Debig custom `chain` `filter`s.
+- Input device is recognized  
+- MIDI data arrives without errors  
+- Message types match expectations  
+- Value ranges are correct  
+- No timing issues.
+- Debig custom `chain filter`s.
 ---
 
 ## Performance Tips
