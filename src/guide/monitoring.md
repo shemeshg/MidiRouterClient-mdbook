@@ -4,7 +4,9 @@ Debug and inspect incoming MIDI data in real-time.
 
 ## Overview
 
-The Monitoring view displays all MIDI messages arriving at your selected input port. It translates complex MIDI formats into human-readable output, making troubleshooting fast and intuitive.
+The Monitoring view shows all MIDI messages arriving at the selected input port, translating complex MIDI data into a readable format for quick, intuitive troubleshooting. You can also open the monitor in a separate window to keep it visible while working elsewhere in the app.
+
+Monitoring can additionally be enabled by inserting a `monitor` filter anywhere in the chain. Since it behaves like any other filter, it lets you inspect or debug the flow without altering the chain’s logic. Output can be sent either to the server console or to the client where the input originates, giving you flexibility in how and where you observe activity.
 
 ---
 
@@ -13,11 +15,6 @@ The Monitoring view displays all MIDI messages arriving at your selected input p
 1. Navigate to the **In Ports** tab
 2. Select your input device from the port list
 3. Click **Monitoring**
-4. Send MIDI to your input — messages appear instantly
-5. Use the log to verify:
-   - Data is arriving
-   - Expected message types appear
-   - Values are in the expected range
 
 ---
 
@@ -58,7 +55,7 @@ Before building complex routes, use monitoring to confirm:
 ✅ Message types match expectations  
 ✅ Value ranges are correct  
 ✅ No timing issues
-
+✅ Debig custom `chain` `filter`s.
 ---
 
 ## Performance Tips
