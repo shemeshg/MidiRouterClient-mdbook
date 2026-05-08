@@ -12,6 +12,10 @@ MIDI Router Client works around three key concepts:
 
 **Typical workflow:** Install → Create Preset → Add Route (EasyConfig) → Add User Controls → Test & Deploy
 
+## Tag‑Based Filtering with Regex and `:Label` shortcuts
+
+Adding tags like `:midi`, `:arp`, or `:mix` inside a description automatically creates quick‑access buttons that populate the filter field, allowing fast navigation through large routing configurations.
+
 ---
 
 ## Step 1: Install MIDI Router Client
