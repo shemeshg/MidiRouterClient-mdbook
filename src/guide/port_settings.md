@@ -4,7 +4,7 @@ Configure how your MIDI input ports handle incoming messages.
 
 ## Overview
 
-Port settings control message filtering, clock handling, and value translation at the input level. Changes apply only to the **active preset** and **selected input port**.
+Port settings control message filtering, clock handling, and value translation at the input level. Changes to `settings` apply only to the active and selected preset's input port**.
 
 > **Note:** Settings are preset-specific. Different presets can have different configurations for the same port.
 

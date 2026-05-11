@@ -26,6 +26,24 @@ Run MIDI Router Client from the command line for scripting, automation, and head
 | `-h, --help` | Display command-line help message |
 | `--help-all` | Display help including generic Qt options |
 
+```
+ /Applications/midi-router-client.app/Contents/MacOS/midi-router-client -h
+Usage: /Applications/midi-router-client.app/Contents/MacOS/midi-router-client [options]
+
+Options:
+  -h, --help  Displays help on commandline options.
+  --help-all  Displays help, including generic Qt options.
+  --headless  Run in headless mode on the specified port by the gui.
+               --config-file  <path>    Full path to config file.
+               --server-port  <path>    serevr port.
+  --apply     Apply a preset (local or remote).
+               --address <address>      Remote address (ip:port).
+               --preset-name <preset>   Preset name (regex) to apply, use "" to
+              list presets
+  --quit      Quit server (local or remote).
+               --address <address>      Remote address (ip:port).
+```
+
 ### Headless Mode
 
 ```bash
