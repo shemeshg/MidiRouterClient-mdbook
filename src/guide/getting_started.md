@@ -14,7 +14,9 @@ MIDI Router Client works around three key concepts:
 
 ## Tag‑Based Filtering with Regex and `:Label` shortcuts
 
-Adding tags like `:midi`, `:arp`, or `:mix` inside a description automatically creates quick‑access buttons that populate the filter field, allowing fast navigation through large routing configurations.
+Adding tags like `:midi`, `:arp`, or `:mix` inside a description automatically creates quick‑access buttons that populate the filter field, 
+allowing fast navigation through large routing configurations. 
+Use R‑click → Tag to open the tag‑editing popup.
 
 ---
 
