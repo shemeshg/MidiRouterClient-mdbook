@@ -42,6 +42,8 @@ Install via [Homebrew](https://brew.sh/):
 
 ```bash
 brew remove --cask midi-router-client
+brew tap shemeshg/tap
+brew trust shemeshg/tap
 brew install --cask shemeshg/homebrew-tap/midi-router-client
 codesign --force --deep --sign - /Applications/midi-router-client.app/
 xattr -c /Applications/midi-router-client.app/
